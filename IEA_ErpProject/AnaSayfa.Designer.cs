@@ -30,6 +30,7 @@
         {
             this.tabPGenel = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.BtnKapat = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlSol = new System.Windows.Forms.Panel();
@@ -43,7 +44,6 @@
             this.btnSolUstAra = new System.Windows.Forms.Button();
             this.txtSolUstAra = new System.Windows.Forms.TextBox();
             this.splitter2 = new System.Windows.Forms.Splitter();
-            this.BtnKapat = new System.Windows.Forms.Button();
             this.tabPGenel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.pnlSol.SuspendLayout();
@@ -76,6 +76,18 @@
             this.tabPage1.Size = new System.Drawing.Size(1390, 106);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Genel";
+            // 
+            // BtnKapat
+            // 
+            this.BtnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit1;
+            this.BtnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnKapat.Location = new System.Drawing.Point(1307, 19);
+            this.BtnKapat.Name = "BtnKapat";
+            this.BtnKapat.Size = new System.Drawing.Size(64, 64);
+            this.BtnKapat.TabIndex = 12;
+            this.BtnKapat.UseVisualStyleBackColor = true;
+            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
             // 
             // tabPage2
             // 
@@ -137,6 +149,7 @@
             // 
             this.TvMenu.BackColor = System.Drawing.Color.LavenderBlush;
             this.TvMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TvMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TvMenu.ForeColor = System.Drawing.Color.DimGray;
             this.TvMenu.Location = new System.Drawing.Point(0, 0);
             this.TvMenu.Name = "TvMenu";
@@ -239,18 +252,6 @@
             this.splitter2.Size = new System.Drawing.Size(3, 539);
             this.splitter2.TabIndex = 3;
             this.splitter2.TabStop = false;
-            // 
-            // BtnKapat
-            // 
-            this.BtnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit1;
-            this.BtnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnKapat.Location = new System.Drawing.Point(1307, 19);
-            this.BtnKapat.Name = "BtnKapat";
-            this.BtnKapat.Size = new System.Drawing.Size(64, 64);
-            this.BtnKapat.TabIndex = 12;
-            this.BtnKapat.UseVisualStyleBackColor = true;
-            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
             // 
             // AnaSayfa
             // 

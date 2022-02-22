@@ -16,6 +16,9 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
     {
         public string FAdi = "";
         private readonly ErpProject102SEntities _db = new ErpProject102SEntities();
+        private int secimId = -1;
+        private tblFirmaDetaylar kayitBul;
+
 
         public FirmaDetayGoster()
         {
@@ -43,11 +46,12 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
             {
                 Liste.Rows.Add();
                 Liste.Rows[i].Cells[0].Value = i + 1;
-                Liste.Rows[i].Cells[1].Value = item.YetkiliAdi;
-                Liste.Rows[i].Cells[2].Value = item.tblDepartmanlar.Adi;
-                Liste.Rows[i].Cells[3].Value = item.Tel;
-                Liste.Rows[i].Cells[4].Value = item.Gsm;
-                Liste.Rows[i].Cells[5].Value = item.Email;
+                Liste.Rows[i].Cells[1].Value = item.Id;
+                Liste.Rows[i].Cells[2].Value = item.YetkiliAdi;
+                Liste.Rows[i].Cells[3].Value = item.tblDepartmanlar.Adi;
+                Liste.Rows[i].Cells[4].Value = item.Tel;
+                Liste.Rows[i].Cells[5].Value = item.Gsm;
+                Liste.Rows[i].Cells[6].Value = item.Email;
                 i++;
 
             }
@@ -57,6 +61,42 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
             Liste.ReadOnly = true;
         }
 
-       
+        private void BtnSil_Click(object sender, EventArgs e)
+        { 
+            Sil();
+        }
+
+        private void Sil()
+        {
+            if (secimId > 0)
+            {
+                _db.tblFirmaDetaylar.Remove(kayitBul);
+                _db.SaveChanges();
+                MessageBox.Show("Kaydiniz silinmistir! Gecmis Olsun.");
+                Listele();
+            }
+        }
+
+        private void Liste_DoubleClick(object sender, EventArgs e)
+        {
+            if (Liste.CurrentRow != null)
+            {
+                secimId = (int)Liste.CurrentRow.Cells[1].Value;
+            }
+
+            Ac(secimId);
+        }
+
+        public void Ac(int secimId)
+        {
+            if (secimId < 0)
+            {
+                MessageBox.Show("Kayit id bulunamamistir!");
+                return;
+            }
+            kayitBul = _db.tblFirmaDetaylar.FirstOrDefault(x => x.Id == secimId);
+
+            lblSecilenKayit.Text = kayitBul.Id.ToString().PadLeft(6, '0');
+        }
     }
 }
