@@ -16,6 +16,7 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
     {
         public string FAdi = "";
         private readonly ErpProject102SEntities _db = new ErpProject102SEntities();
+
         public FirmaDetayGoster()
         {
             InitializeComponent();
@@ -55,5 +56,7 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
             Liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Liste.ReadOnly = true;
         }
+
+       
     }
 }

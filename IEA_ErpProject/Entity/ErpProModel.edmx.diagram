@@ -27,6 +27,7 @@
         <AssociationConnector Association="ErpProject102SModel.FK_tblHastaneler_tblHastaneTipleri" />
         <EntityTypeShape EntityType="ErpProject102SModel.tblUrunKayitAlt" Width="1.5" PointX="8.375" PointY="0.75" />
         <EntityTypeShape EntityType="ErpProject102SModel.tblUrunKayitUst" Width="1.5" PointX="3.375" PointY="0.75" />
+        <AssociationConnector Association="ErpProject102SModel.FK_tblUrunKayitUst_tblFirmalar" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

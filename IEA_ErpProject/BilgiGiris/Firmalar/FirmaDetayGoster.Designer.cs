@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnKapat = new System.Windows.Forms.Button();
+            this.BtnSil = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -129,6 +130,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.BtnSil);
             this.panel1.Controls.Add(this.BtnKapat);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -142,12 +144,23 @@
             this.BtnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit1;
             this.BtnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnKapat.Location = new System.Drawing.Point(753, 9);
+            this.BtnKapat.Location = new System.Drawing.Point(753, 3);
             this.BtnKapat.Name = "BtnKapat";
             this.BtnKapat.Size = new System.Drawing.Size(35, 35);
             this.BtnKapat.TabIndex = 13;
             this.BtnKapat.UseVisualStyleBackColor = true;
             this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
+            // 
+            // BtnSil
+            // 
+            this.BtnSil.BackgroundImage = global::IEA_ErpProject.Properties.Resources.icons8_delete_303;
+            this.BtnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSil.Location = new System.Drawing.Point(12, 3);
+            this.BtnSil.Name = "BtnSil";
+            this.BtnSil.Size = new System.Drawing.Size(35, 35);
+            this.BtnSil.TabIndex = 14;
+            this.BtnSil.Text = "Sil";
+            this.BtnSil.UseVisualStyleBackColor = true;
             // 
             // FirmaDetayGoster
             // 
@@ -156,6 +169,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Liste);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FirmaDetayGoster";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FirmaDetayGoster";
@@ -178,5 +192,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnKapat;
+        private System.Windows.Forms.Button BtnSil;
     }
 }

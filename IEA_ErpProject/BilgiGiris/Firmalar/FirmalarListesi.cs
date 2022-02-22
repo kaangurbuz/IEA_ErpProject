@@ -17,7 +17,7 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
     {
         private readonly ErpProject102SEntities _db = new ErpProject102SEntities();
         public bool Secim = false;
-        private FirmaGiris frm = new FirmaGiris();
+        //private FirmaGiris frm = new FirmaGiris();
         private List<tblFirmalar> frmList;
         private int secimId = -1;
         private Formlar f = new Formlar();
@@ -68,21 +68,29 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
         {
             if (Liste.CurrentRow != null) secimId = (int?)Liste.CurrentRow.Cells[1].Value ?? -1;
 
-            if (secimId > 0 && Application.OpenForms["FirmaGiris"] == null)
+            if (secimId > 0 && Application.OpenForms["FirmaGiris"] == null&&Secim)
             {
 
-                //AnaSayfa.Aktarma=secimId;
+                AnaSayfa.Aktarma=secimId;
                 Close();
-                f.FirmaGirisAc(secimId);
+               
+                //f.FirmaGirisAc(secimId);
 
             }
 
-            else if (Application.OpenForms["FirmaGiris"] != null)
+            else if (Application.OpenForms["FirmaGiris"] != null&&Secim)
             {
                 FirmaGiris frm = Application.OpenForms["FirmaGiris"] as FirmaGiris;
                 frm.Ac(secimId);
                 Close();
             }
+
+            else if (!Secim)
+            {
+                f.FirmaGirisAc(secimId);
+                Close();
+            }
+
         }
 
         private void BtnHastaneAra_Click(object sender, EventArgs e)
