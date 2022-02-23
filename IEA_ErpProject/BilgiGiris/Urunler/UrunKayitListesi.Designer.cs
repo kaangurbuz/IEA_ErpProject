@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlUst = new System.Windows.Forms.Panel();
             this.txtUrunAra = new System.Windows.Forms.TextBox();
             this.BtnUrunAra = new System.Windows.Forms.Button();
@@ -41,6 +41,7 @@
             this.FirmaAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UrunKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AciklaTr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlUst.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.SuspendLayout();
@@ -89,8 +90,8 @@
             // 
             // Liste
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LavenderBlush;
-            this.Liste.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.Liste.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Liste.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -98,22 +99,24 @@
             this.Id,
             this.FirmaAdi,
             this.UrunKodu,
-            this.AciklaTr});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.HotPink;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Liste.DefaultCellStyle = dataGridViewCellStyle5;
+            this.AciklaTr,
+            this.UId});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.HotPink;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Liste.DefaultCellStyle = dataGridViewCellStyle2;
             this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Liste.Location = new System.Drawing.Point(0, 100);
             this.Liste.Name = "Liste";
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightPink;
-            this.Liste.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightPink;
+            this.Liste.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.Liste.Size = new System.Drawing.Size(800, 350);
             this.Liste.TabIndex = 2;
+            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
             // Sira
             // 
@@ -147,6 +150,12 @@
             this.AciklaTr.HeaderText = "Açıklama";
             this.AciklaTr.Name = "AciklaTr";
             // 
+            // UId
+            // 
+            this.UId.HeaderText = "UId";
+            this.UId.Name = "UId";
+            this.UId.Visible = false;
+            // 
             // UrunKayitListesi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,5 +185,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FirmaAdi;
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunKodu;
         private System.Windows.Forms.DataGridViewTextBoxColumn AciklaTr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UId;
     }
 }

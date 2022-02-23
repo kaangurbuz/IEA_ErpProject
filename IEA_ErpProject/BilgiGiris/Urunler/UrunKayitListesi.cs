@@ -15,6 +15,7 @@ namespace IEA_ErpProject.BilgiGiris.Urunler
     {
         private ErpProject102SEntities _db = new ErpProject102SEntities();
         public bool Secim = false;
+        private int secimUId = -1;
         public UrunKayitListesi()
         {
             InitializeComponent();
@@ -40,6 +41,7 @@ namespace IEA_ErpProject.BilgiGiris.Urunler
                 if (s.tblFirmalar != null) Liste.Rows[i].Cells[2].Value = s.tblFirmalar.Adi;
                 Liste.Rows[i].Cells[3].Value = s.UrunKodu;
                 Liste.Rows[i].Cells[4].Value = s.AciklamaTr;
+                Liste.Rows[i].Cells[5].Value = s.UId;
                 i++;
             }
 
@@ -52,6 +54,32 @@ namespace IEA_ErpProject.BilgiGiris.Urunler
         private void txtUrunAra_TextChanged(object sender, EventArgs e)
         {
             Listele();
+        }
+
+        private void Liste_DoubleClick(object sender, EventArgs e)
+        {
+            Sec();
+            if (Secim&&secimUId>0)
+            {
+                AnaSayfa.Aktarma = secimUId;
+                Close();
+                
+            }
+
+            else if (!Secim && secimUId > 0)
+            {
+                UrunKayit urn = new UrunKayit();
+                urn.MdiParent = Form.ActiveForm;
+                urn.StartPosition = FormStartPosition.CenterScreen;
+                urn.Show();
+                urn.UrunAc(secimUId);
+            }
+        }
+
+        private void Sec()
+        {
+            if (Liste.CurrentRow != null) secimUId = Convert.ToInt32(Liste.CurrentRow.Cells[5].Value);
+            else secimUId = -1;
         }
     }
 }
