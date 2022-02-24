@@ -61,6 +61,7 @@
             this.Liste = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbUrunResmi = new System.Windows.Forms.PictureBox();
+            this.BtnListeSatirSil = new System.Windows.Forms.Button();
             this.BtnListeEkle = new System.Windows.Forms.Button();
             this.BtnKapat = new System.Windows.Forms.Button();
             this.BtnTemizle = new System.Windows.Forms.Button();
@@ -77,6 +78,8 @@
             this.SUT_ACIKLAMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UTS = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Durum = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etiketId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.scUrunKayit)).BeginInit();
             this.scUrunKayit.Panel1.SuspendLayout();
             this.scUrunKayit.Panel2.SuspendLayout();
@@ -400,7 +403,8 @@
             this.SUTFiyat,
             this.SUT_ACIKLAMA,
             this.UTS,
-            this.Durum});
+            this.Durum,
+            this.Id});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -418,7 +422,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightPink;
+            this.panel1.Controls.Add(this.BtnListeSatirSil);
             this.panel1.Controls.Add(this.BtnListeEkle);
+            this.panel1.Controls.Add(this.etiketId);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -433,6 +439,19 @@
             this.pbUrunResmi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbUrunResmi.TabIndex = 3;
             this.pbUrunResmi.TabStop = false;
+            // 
+            // BtnListeSatirSil
+            // 
+            this.BtnListeSatirSil.BackgroundImage = global::IEA_ErpProject.Properties.Resources.minus;
+            this.BtnListeSatirSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnListeSatirSil.FlatAppearance.BorderSize = 0;
+            this.BtnListeSatirSil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnListeSatirSil.Location = new System.Drawing.Point(1148, 4);
+            this.BtnListeSatirSil.Name = "BtnListeSatirSil";
+            this.BtnListeSatirSil.Size = new System.Drawing.Size(35, 35);
+            this.BtnListeSatirSil.TabIndex = 1;
+            this.BtnListeSatirSil.UseVisualStyleBackColor = false;
+            this.BtnListeSatirSil.Click += new System.EventHandler(this.BtnListeSatirSil_Click);
             // 
             // BtnListeEkle
             // 
@@ -480,6 +499,7 @@
             this.BtnSil.TabIndex = 8;
             this.BtnSil.Text = "Sil";
             this.BtnSil.UseVisualStyleBackColor = true;
+            this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
             // 
             // BtnGuncelle
             // 
@@ -569,6 +589,25 @@
             this.Durum.HeaderText = "Durum";
             this.Durum.Name = "Durum";
             // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Width = 41;
+            // 
+            // etiketId
+            // 
+            this.etiketId.BackColor = System.Drawing.Color.LightPink;
+            this.etiketId.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.etiketId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.etiketId.Location = new System.Drawing.Point(445, 8);
+            this.etiketId.Name = "etiketId";
+            this.etiketId.Size = new System.Drawing.Size(214, 23);
+            this.etiketId.TabIndex = 0;
+            this.etiketId.Text = "***";
+            this.etiketId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // UrunKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -635,6 +674,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnListeEkle;
+        private System.Windows.Forms.Button BtnListeSatirSil;
         private System.Windows.Forms.DataGridViewTextBoxColumn GMDN;
         private System.Windows.Forms.DataGridViewTextBoxColumn UNSPC;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SB;
@@ -645,5 +685,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SUT_ACIKLAMA;
         private System.Windows.Forms.DataGridViewCheckBoxColumn UTS;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Durum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.Label etiketId;
     }
 }

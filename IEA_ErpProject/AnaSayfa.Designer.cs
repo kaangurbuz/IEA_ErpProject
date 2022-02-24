@@ -44,6 +44,7 @@
             this.btnSolUstAra = new System.Windows.Forms.Button();
             this.txtSolUstAra = new System.Windows.Forms.TextBox();
             this.splitter2 = new System.Windows.Forms.Splitter();
+            this.BtnStok = new System.Windows.Forms.Button();
             this.tabPGenel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.pnlSol.SuspendLayout();
@@ -139,6 +140,7 @@
             // scMenu.Panel2
             // 
             this.scMenu.Panel2.BackColor = System.Drawing.Color.LightPink;
+            this.scMenu.Panel2.Controls.Add(this.BtnStok);
             this.scMenu.Panel2.Controls.Add(this.BtnUrunGiris);
             this.scMenu.Panel2.Controls.Add(this.BtnBilgiGiris);
             this.scMenu.Size = new System.Drawing.Size(337, 462);
@@ -253,6 +255,18 @@
             this.splitter2.TabIndex = 3;
             this.splitter2.TabStop = false;
             // 
+            // BtnStok
+            // 
+            this.BtnStok.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BtnStok.ForeColor = System.Drawing.Color.DimGray;
+            this.BtnStok.Location = new System.Drawing.Point(174, 17);
+            this.BtnStok.Name = "BtnStok";
+            this.BtnStok.Size = new System.Drawing.Size(74, 56);
+            this.BtnStok.TabIndex = 1;
+            this.BtnStok.Text = "Stok Islemleri";
+            this.BtnStok.UseVisualStyleBackColor = false;
+            this.BtnStok.Click += new System.EventHandler(this.BtnStok_Click);
+            // 
             // AnaSayfa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,6 +314,7 @@
         private System.Windows.Forms.Button BtnBilgiGiris;
         private System.Windows.Forms.Button BtnUrunGiris;
         private System.Windows.Forms.Button BtnKapat;
+        private System.Windows.Forms.Button BtnStok;
     }
 }
 

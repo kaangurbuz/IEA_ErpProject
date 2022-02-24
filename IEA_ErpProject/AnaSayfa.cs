@@ -13,6 +13,7 @@ using IEA_ErpProject.BilgiGiris.Hastaneler;
 using IEA_ErpProject.BilgiGiris.Personeller;
 using IEA_ErpProject.BilgiGiris.Urunler;
 using IEA_ErpProject.Functions;
+using IEA_ErpProject.UrunGiris.Stok;
 using IEA_ErpProject.UrunGiris.Urunler;
 
 namespace IEA_ErpProject
@@ -66,9 +67,15 @@ namespace IEA_ErpProject
                     TvMenu.Nodes[0].Nodes.Add("Urunler Listesi");
                     TvMenu.Nodes[0].Nodes.Add("Urun Giris");
                     break;
+                case 3:
+                    TvMenu.Nodes.Add("Stok"); //root
+                    TvMenu.Nodes[0].Nodes.Add("Stok Durum");
+                    //TvMenu.Nodes[0].Nodes.Add("Urun Giris");
+                    break;
             }
 
         }
+        #region MenuButton
         private void BtnBilgiGiris_Click(object sender, EventArgs e)
         {
             lblSolUstMenu.Text = BtnBilgiGiris.Text;
@@ -77,10 +84,16 @@ namespace IEA_ErpProject
 
         private void BtnUrunGiris_Click(object sender, EventArgs e)
         {
-            lblSolUstMenu.Text=BtnUrunGiris.Text;
+            lblSolUstMenu.Text = BtnUrunGiris.Text;
             MenuOlustur(2); // urun menu
         }
+        private void BtnStok_Click(object sender, EventArgs e)
+        {
+            lblSolUstMenu.Text = BtnStok.Text;
+            MenuOlustur(3); // stok menu
+        }
 
+        #endregion
         private void TvMenu_DoubleClick(object sender, EventArgs e)
         {
             string isim = "";
@@ -169,11 +182,16 @@ namespace IEA_ErpProject
 
             else if (isim == "Urunler Listesi" && Application.OpenForms["UrunlerListesi"] == null)
             {
-                UrunlerListesi frm = new UrunlerListesi();
+                f.UrunGirisListesiAc();
+            }
+            #endregion
+
+            else if (isim == "Stok Durum" && Application.OpenForms["StokDurum"] == null)
+            {
+                StokDurum frm = new StokDurum();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
-            } 
-            #endregion
+            }
 
         }
 
@@ -190,5 +208,7 @@ namespace IEA_ErpProject
                 Application.ExitThread();
             }
         }
+
+      
     }
 }

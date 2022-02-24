@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace IEA_ErpProject.BilgiGiris.Urunler
         private bool _resim = false;
         //private bool YeniKayitBool = false;
         OpenFileDialog _dosya = new OpenFileDialog();
+        private int secimId = -1;
 
         public UrunKayit()
         {
@@ -117,7 +119,10 @@ namespace IEA_ErpProject.BilgiGiris.Urunler
 
         public void UrunAc(int uid)
         {
+            
             Temizle();
+            BtnKaydet.Visible = false;
+            secimId = uid;
             Liste.AllowUserToAddRows = false;
             tblUrunKayitUst lst = _db.tblUrunKayitUst.FirstOrDefault(s => s.UId == uid);
 
@@ -130,6 +135,7 @@ namespace IEA_ErpProject.BilgiGiris.Urunler
             txtUrunKodu.Text = lst.UrunKodu;
             txtKullanimSuresi.Text = lst.KullanimSuresi.ToString();
             if (lst.Resim != null) pbUrunResmi.Image = r.ResimGetir(lst.Resim);
+            etiketId.Text = lst.Id.ToString().PadLeft(7,'0');
 
             var alt = _db.tblUrunKayitAlt.Where(x => x.UrunId == uid).ToList();
             var urunAltTek = _db.tblUrunKayitAlt.FirstOrDefault(s => s.UrunId == uid);
@@ -146,7 +152,8 @@ namespace IEA_ErpProject.BilgiGiris.Urunler
                 Liste.Rows[i].Cells[6].Value = item.SutFiyat;
                 Liste.Rows[i].Cells[7].Value = item.SutAciklama;
                 Liste.Rows[i].Cells[8].Value = item.UTS;
-                Liste.Rows[i].Cells[9].Value = true;
+                Liste.Rows[i].Cells[9].Value = false;
+                Liste.Rows[i].Cells[10].Value = item.Id;
                 i++;
             }
 
@@ -242,8 +249,11 @@ namespace IEA_ErpProject.BilgiGiris.Urunler
             }
 
             Liste.Rows.Clear();
-            Liste.Rows.Add();
+            //Liste.Rows.Add();
+            BtnKaydet.Visible = true;
             txtUrunId.Text = n.UidNo();
+
+            secimId = -1;
         }
 
         private void BtnTemizle_Click(object sender, EventArgs e)
@@ -273,12 +283,12 @@ namespace IEA_ErpProject.BilgiGiris.Urunler
             _db.SaveChanges();
 
             // tblUrunKayitAlt alt = (tblUrunKayitAlt)_db.tblUrunKayitAlt.Where(x => x.UrunId == int.Parse(txtUrunId.Text));
-            tblUrunKayitAlt[] alt = _db.tblUrunKayitAlt.Where(x => x.UrunId == a).ToArray();
+            List <tblUrunKayitAlt> alt = _db.tblUrunKayitAlt.Where(x => x.UrunId == a).ToList();
 
             for (int i = 0; i < Liste.RowCount; i++)
             {
-              
-                if ((bool)Liste.Rows[i].Cells[9].Value == true)
+                var value = Liste.Rows[i].Cells[9].Value;
+                if (value != null && (bool)value != true)
                 {
                     int indexId = alt[i].Id;
                     alt[i] = _db.tblUrunKayitAlt.FirstOrDefault(s => s.Id == indexId);
@@ -303,6 +313,7 @@ namespace IEA_ErpProject.BilgiGiris.Urunler
                 }
                 else
                 {
+                    alt.Add(null);
                     alt[i] = new tblUrunKayitAlt();
                     alt[i].Aciklama = txtAciklamaTr.Text;
                     alt[i].BirimFiyat = Convert.ToDecimal(txtBirimFiyat.Text);
@@ -323,34 +334,110 @@ namespace IEA_ErpProject.BilgiGiris.Urunler
                     alt[i].UICode = txtUrunKodu.Text;
                     _db.tblUrunKayitAlt.Add(alt[i]);
                 }
-                
-               
-                //if (YeniKayitBool)
-                //{
-                //   // i++;
-                //    _db.tblUrunKayitAlt.Add(alt[i]);
-                //}
-                    
-                
             }
             _db.SaveChanges();
+            MessageBox.Show("Guncellenme islemi basarili!");
         }
 
         private void BtnListeEkle_Click(object sender, EventArgs e)
         {
+            
             if (Liste.AllowUserToAddRows == true)
             {
                 Liste.AllowUserToAddRows = false;
                 //YeniKayitBool = false;
-
+                
             }
             else
             { 
                 Liste.AllowUserToAddRows = true;
                 //YeniKayitBool = true;
+                var srg = Liste.RowCount;
+                if (Liste.CurrentRow != null) Liste.Rows[srg - 1].Cells[9].Value = true;
+
             }
+           
+
             
-              
+
+        }
+
+        private void BtnListeSatirSil_Click(object sender, EventArgs e)
+        {
+            tblUrunKayitAlt[] alt = new tblUrunKayitAlt[Liste.RowCount];
+            bool SecimVarMi = true;
+            if (secimId < 0)
+            {
+                MessageBox.Show(
+                    "Once Kayit seciniz!");
+                return;
+            }
+            for (int i = 0; i < Liste.RowCount; i++)
+            {
+                if ((bool)Liste.Rows[i].Cells[9].Value == true)
+                {
+                    var srg = _db.tblUrunKayitAlt.Find(Liste.Rows[i].Cells[10].Value);
+                    _db.tblUrunKayitAlt.Remove(srg);
+                    SecimVarMi = false;
+                }
+                
+            }
+            if (SecimVarMi)
+            {
+
+                MessageBox.Show(
+                    "Silinecek satir bulunamadi!.Silmek istediğiniz satirlarin durum tikini işaretleyiniz");
+                return;
+            }
+
+            try
+            {
+                if (_db.SaveChanges() > 0)
+                {
+                    MessageBox.Show("Satir silme islemi yapildi");
+                    UrunAc(int.Parse(txtUrunId.Text));
+                }
+                
+            }
+            catch (SqlException se)
+            {
+                MessageBox.Show(se.Message + " Sql - Islem bilinmeyen bir sebepten oturu yapilamadi..");
+                throw;
+            }
+
+            catch (Exception exx)
+            {
+                MessageBox.Show(exx.Message + " C# - Islem bilinmeyen bir sebepten oturu yapilamadi..");
+                throw;
+            }
+
+        }
+
+        private void BtnSil_Click(object sender, EventArgs e)
+        {
+            var srg = _db.tblUrunKayitUst.Find(int.Parse( etiketId.Text));
+            var uid = _db.tblUrunKayitAlt.Where(s=>s.UrunId==srg.UId);
+            _db.tblUrunKayitUst.Remove(srg);
+            _db.tblUrunKayitAlt.RemoveRange(uid);
+            try
+            {
+                if (_db.SaveChanges() > 0)
+                {
+                    MessageBox.Show("Satir silme islemi yapildi");
+                    Close();
+                }
+            }
+            catch (SqlException se)
+            {
+                MessageBox.Show(se.Message + " Sql - Islem bilinmeyen bir sebepten oturu yapilamadi..");
+                throw;
+            }
+
+            catch (Exception exx)
+            {
+                MessageBox.Show(exx.Message + " C# - Islem bilinmeyen bir sebepten oturu yapilamadi..");
+                throw;
+            }
         }
     }
 }
