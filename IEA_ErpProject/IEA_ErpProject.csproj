@@ -42,6 +42,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -195,6 +197,9 @@
     <Compile Include="Entity\tblHastaneTipleri.cs">
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\tblPersoneller.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\tblUrunKayitAlt.cs">
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>
@@ -319,6 +324,7 @@
       <LastGenOutput>ErpProModel.cs</LastGenOutput>
     </Content>
     <Content Include="ReadMe.txt" />
+    <None Include="Resources\add.png" />
     <None Include="Resources\close.png" />
     <None Include="Resources\magnifier2.png" />
     <None Include="Resources\magnifier.png" />

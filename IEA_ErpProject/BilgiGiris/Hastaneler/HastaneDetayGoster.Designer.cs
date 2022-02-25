@@ -32,15 +32,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Liste = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnKapat = new System.Windows.Forms.Button();
+            this.lblSecilenKayit = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BtnSil = new System.Windows.Forms.Button();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Yetkili = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Departman = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gsm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnKapat = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +61,8 @@
             this.Departman,
             this.Telefon,
             this.Gsm,
-            this.Email});
+            this.Email,
+            this.Id});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -73,6 +78,79 @@
             this.Liste.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.Liste.Size = new System.Drawing.Size(684, 412);
             this.Liste.TabIndex = 11;
+            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Pink;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(684, 47);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Hastane Detaylari";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblSecilenKayit);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.BtnSil);
+            this.panel1.Controls.Add(this.BtnKapat);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(684, 47);
+            this.panel1.TabIndex = 13;
+            // 
+            // BtnKapat
+            // 
+            this.BtnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit1;
+            this.BtnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnKapat.Location = new System.Drawing.Point(637, 9);
+            this.BtnKapat.Name = "BtnKapat";
+            this.BtnKapat.Size = new System.Drawing.Size(35, 35);
+            this.BtnKapat.TabIndex = 13;
+            this.BtnKapat.UseVisualStyleBackColor = true;
+            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
+            // 
+            // lblSecilenKayit
+            // 
+            this.lblSecilenKayit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblSecilenKayit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblSecilenKayit.Location = new System.Drawing.Point(159, 15);
+            this.lblSecilenKayit.Name = "lblSecilenKayit";
+            this.lblSecilenKayit.Size = new System.Drawing.Size(88, 24);
+            this.lblSecilenKayit.TabIndex = 18;
+            this.lblSecilenKayit.Text = "****";
+            this.lblSecilenKayit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.LavenderBlush;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Location = new System.Drawing.Point(53, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Secilen Kayit Id";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnSil
+            // 
+            this.BtnSil.BackgroundImage = global::IEA_ErpProject.Properties.Resources.icons8_delete_303;
+            this.BtnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSil.Location = new System.Drawing.Point(12, 9);
+            this.BtnSil.Name = "BtnSil";
+            this.BtnSil.Size = new System.Drawing.Size(35, 35);
+            this.BtnSil.TabIndex = 16;
+            this.BtnSil.Text = "Sil";
+            this.BtnSil.UseVisualStyleBackColor = true;
+            this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
             // 
             // Sira
             // 
@@ -114,40 +192,11 @@
             this.Email.HeaderText = "Email";
             this.Email.Name = "Email";
             // 
-            // label1
+            // Id
             // 
-            this.label1.BackColor = System.Drawing.Color.Pink;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(684, 47);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Hastane Detaylari";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.BtnKapat);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 47);
-            this.panel1.TabIndex = 13;
-            // 
-            // BtnKapat
-            // 
-            this.BtnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit1;
-            this.BtnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnKapat.Location = new System.Drawing.Point(637, 9);
-            this.BtnKapat.Name = "BtnKapat";
-            this.BtnKapat.Size = new System.Drawing.Size(35, 35);
-            this.BtnKapat.TabIndex = 13;
-            this.BtnKapat.UseVisualStyleBackColor = true;
-            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
             // 
             // HastaneDetayGoster
             // 
@@ -173,12 +222,16 @@
         private System.Windows.Forms.DataGridView Liste;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button BtnKapat;
+        private System.Windows.Forms.Label lblSecilenKayit;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button BtnSil;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sira;
         private System.Windows.Forms.DataGridViewTextBoxColumn Yetkili;
         private System.Windows.Forms.DataGridViewTextBoxColumn Departman;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefon;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gsm;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.Button BtnKapat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
     }
 }

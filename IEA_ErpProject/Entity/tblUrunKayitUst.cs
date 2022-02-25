@@ -21,5 +21,9 @@ namespace IEA_ErpProject.Entity
         public string AciklamaEng { get; set; }
         public Nullable<System.DateTime> GirisTarih { get; set; }
         public byte[] Resim { get; set; }
+        public Nullable<int> FirmaId { get; set; }
+        public Nullable<int> KullanimSuresi { get; set; }
+    
+        public virtual tblFirmalar tblFirmalar { get; set; }
     }
 }
