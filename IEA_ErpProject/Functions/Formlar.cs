@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ using IEA_ErpProject.BilgiGiris.Doktorlar;
 using IEA_ErpProject.BilgiGiris.Firmalar;
 using IEA_ErpProject.BilgiGiris.Hastaneler;
 using IEA_ErpProject.BilgiGiris.Urunler;
+using IEA_ErpProject.UrunGiris.Urunler;
 
 namespace IEA_ErpProject.Functions
 {
@@ -116,5 +118,22 @@ namespace IEA_ErpProject.Functions
             }
             return AnaSayfa.Aktarma;
         }
+
+        public int UrunGirisListesiAc(bool secim = false)
+        {
+            UrunlerGirisListesi frm = new UrunlerGirisListesi();
+            if (secim)
+            {
+                frm.Secim = true;
+                frm.ShowDialog();
+            }
+            else
+            {
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            return AnaSayfa.Aktarma;
+        }
+
     }
 }

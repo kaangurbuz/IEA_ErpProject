@@ -19,6 +19,7 @@ namespace IEA_ErpProject.Entity
         {
             this.tblFirmaDetaylar = new HashSet<tblFirmaDetaylar>();
             this.tblHastaneDetaylar = new HashSet<tblHastaneDetaylar>();
+            this.tblPersoneller = new HashSet<tblPersoneller>();
         }
     
         public int Id { get; set; }
@@ -29,5 +30,7 @@ namespace IEA_ErpProject.Entity
         public virtual ICollection<tblFirmaDetaylar> tblFirmaDetaylar { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblHastaneDetaylar> tblHastaneDetaylar { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblPersoneller> tblPersoneller { get; set; }
     }
 }

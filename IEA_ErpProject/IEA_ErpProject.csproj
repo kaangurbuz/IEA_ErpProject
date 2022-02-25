@@ -42,6 +42,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -195,6 +197,9 @@
     <Compile Include="Entity\tblHastaneTipleri.cs">
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\tblPersoneller.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\tblUrunKayitAlt.cs">
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>
@@ -211,17 +216,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UrunGiris\Stok\StokDurum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UrunGiris\Stok\StokDurum.Designer.cs">
+      <DependentUpon>StokDurum.cs</DependentUpon>
+    </Compile>
     <Compile Include="UrunGiris\Urunler\UrunGiris.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UrunGiris\Urunler\UrunGiris.Designer.cs">
       <DependentUpon>UrunGiris.cs</DependentUpon>
     </Compile>
-    <Compile Include="UrunGiris\Urunler\UrunlerListesi.cs">
+    <Compile Include="UrunGiris\Urunler\UrunlerGirisListesi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UrunGiris\Urunler\UrunlerListesi.Designer.cs">
-      <DependentUpon>UrunlerListesi.cs</DependentUpon>
+    <Compile Include="UrunGiris\Urunler\UrunlerGirisListesi.Designer.cs">
+      <DependentUpon>UrunlerGirisListesi.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AnaSayfa.resx">
       <DependentUpon>AnaSayfa.cs</DependentUpon>
@@ -273,11 +284,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UrunGiris\Stok\StokDurum.resx">
+      <DependentUpon>StokDurum.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UrunGiris\Urunler\UrunGiris.resx">
       <DependentUpon>UrunGiris.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UrunGiris\Urunler\UrunlerListesi.resx">
-      <DependentUpon>UrunlerListesi.cs</DependentUpon>
+    <EmbeddedResource Include="UrunGiris\Urunler\UrunlerGirisListesi.resx">
+      <DependentUpon>UrunlerGirisListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Entity\ErpProModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -319,6 +333,8 @@
       <LastGenOutput>ErpProModel.cs</LastGenOutput>
     </Content>
     <Content Include="ReadMe.txt" />
+    <None Include="Resources\minus.png" />
+    <None Include="Resources\add.png" />
     <None Include="Resources\close.png" />
     <None Include="Resources\magnifier2.png" />
     <None Include="Resources\magnifier.png" />

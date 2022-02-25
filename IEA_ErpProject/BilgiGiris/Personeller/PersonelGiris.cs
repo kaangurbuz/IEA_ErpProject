@@ -61,7 +61,7 @@ namespace IEA_ErpProject.BilgiGiris.Personeller
         private void Listele()
         {
             Liste.Rows.Clear();
-            int i = 0;
+            //int i = 0;
 
             //prsList = (from s in _db.tblPersoneller select s).ToList(); //LINQ sorgusu
 
