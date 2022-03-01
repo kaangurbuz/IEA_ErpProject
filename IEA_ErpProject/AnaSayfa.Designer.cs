@@ -30,11 +30,13 @@
         {
             this.tabPGenel = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.BtnKapat = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlSol = new System.Windows.Forms.Panel();
             this.scMenu = new System.Windows.Forms.SplitContainer();
             this.TvMenu = new System.Windows.Forms.TreeView();
+            this.BtnStok = new System.Windows.Forms.Button();
             this.BtnUrunGiris = new System.Windows.Forms.Button();
             this.BtnBilgiGiris = new System.Windows.Forms.Button();
             this.pnlSolUst = new System.Windows.Forms.Panel();
@@ -43,7 +45,6 @@
             this.btnSolUstAra = new System.Windows.Forms.Button();
             this.txtSolUstAra = new System.Windows.Forms.TextBox();
             this.splitter2 = new System.Windows.Forms.Splitter();
-            this.BtnKapat = new System.Windows.Forms.Button();
             this.tabPGenel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.pnlSol.SuspendLayout();
@@ -76,6 +77,18 @@
             this.tabPage1.Size = new System.Drawing.Size(1390, 106);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Genel";
+            // 
+            // BtnKapat
+            // 
+            this.BtnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit1;
+            this.BtnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnKapat.Location = new System.Drawing.Point(1307, 19);
+            this.BtnKapat.Name = "BtnKapat";
+            this.BtnKapat.Size = new System.Drawing.Size(64, 64);
+            this.BtnKapat.TabIndex = 12;
+            this.BtnKapat.UseVisualStyleBackColor = true;
+            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
             // 
             // tabPage2
             // 
@@ -127,6 +140,7 @@
             // scMenu.Panel2
             // 
             this.scMenu.Panel2.BackColor = System.Drawing.Color.LightPink;
+            this.scMenu.Panel2.Controls.Add(this.BtnStok);
             this.scMenu.Panel2.Controls.Add(this.BtnUrunGiris);
             this.scMenu.Panel2.Controls.Add(this.BtnBilgiGiris);
             this.scMenu.Size = new System.Drawing.Size(337, 462);
@@ -137,12 +151,25 @@
             // 
             this.TvMenu.BackColor = System.Drawing.Color.LavenderBlush;
             this.TvMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TvMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TvMenu.ForeColor = System.Drawing.Color.DimGray;
             this.TvMenu.Location = new System.Drawing.Point(0, 0);
             this.TvMenu.Name = "TvMenu";
             this.TvMenu.Size = new System.Drawing.Size(333, 204);
             this.TvMenu.TabIndex = 0;
             this.TvMenu.DoubleClick += new System.EventHandler(this.TvMenu_DoubleClick);
+            // 
+            // BtnStok
+            // 
+            this.BtnStok.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BtnStok.ForeColor = System.Drawing.Color.DimGray;
+            this.BtnStok.Location = new System.Drawing.Point(174, 17);
+            this.BtnStok.Name = "BtnStok";
+            this.BtnStok.Size = new System.Drawing.Size(74, 56);
+            this.BtnStok.TabIndex = 1;
+            this.BtnStok.Text = "Stok Islemleri";
+            this.BtnStok.UseVisualStyleBackColor = false;
+            this.BtnStok.Click += new System.EventHandler(this.BtnStok_Click);
             // 
             // BtnUrunGiris
             // 
@@ -191,6 +218,7 @@
             this.btnSolUstCollapse.Size = new System.Drawing.Size(25, 25);
             this.btnSolUstCollapse.TabIndex = 3;
             this.btnSolUstCollapse.UseVisualStyleBackColor = true;
+            this.btnSolUstCollapse.Click += new System.EventHandler(this.btnSolUstCollapse_Click);
             // 
             // lblSolUstMenu
             // 
@@ -240,18 +268,6 @@
             this.splitter2.TabIndex = 3;
             this.splitter2.TabStop = false;
             // 
-            // BtnKapat
-            // 
-            this.BtnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit1;
-            this.BtnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnKapat.Location = new System.Drawing.Point(1307, 19);
-            this.BtnKapat.Name = "BtnKapat";
-            this.BtnKapat.Size = new System.Drawing.Size(64, 64);
-            this.BtnKapat.TabIndex = 12;
-            this.BtnKapat.UseVisualStyleBackColor = true;
-            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
-            // 
             // AnaSayfa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,6 +315,7 @@
         private System.Windows.Forms.Button BtnBilgiGiris;
         private System.Windows.Forms.Button BtnUrunGiris;
         private System.Windows.Forms.Button BtnKapat;
+        private System.Windows.Forms.Button BtnStok;
     }
 }
 
