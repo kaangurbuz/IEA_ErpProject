@@ -12,9 +12,12 @@ namespace IEA_ErpProject.UrunGiris.Stok
 {
     public partial class StokDurum : Form
     {
+        public bool Secim = false;
         public StokDurum()
         {
             InitializeComponent();
         }
+
+        
     }
 }

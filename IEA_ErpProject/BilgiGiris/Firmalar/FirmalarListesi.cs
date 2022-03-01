@@ -97,5 +97,10 @@ namespace IEA_ErpProject.BilgiGiris.Firmalar
         {
             Listele();
         }
+
+        private void txtFirmaAra_TextChanged(object sender, EventArgs e)
+        {
+            Listele();
+        }
     }
 }

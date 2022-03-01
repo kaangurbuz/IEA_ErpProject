@@ -18,12 +18,12 @@ namespace IEA_ErpProject.BilgiGiris.Urunler
     public partial class UrunKayit : Form
     {
         private readonly ErpProject102SEntities _db = new ErpProject102SEntities();
-        private Numaralar n = new Numaralar();
-        private Resimler r = new Resimler();
-        private Formlar f = new Formlar();
+        private readonly Numaralar n = new Numaralar();
+        private readonly Resimler r = new Resimler();
+        private readonly Formlar f = new Formlar();
         private bool _resim = false;
         //private bool YeniKayitBool = false;
-        OpenFileDialog _dosya = new OpenFileDialog();
+        readonly OpenFileDialog _dosya = new OpenFileDialog();
         private int secimId = -1;
 
         public UrunKayit()

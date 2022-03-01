@@ -197,7 +197,13 @@
     <Compile Include="Entity\tblHastaneTipleri.cs">
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\tblPersoneller.cs">
+    <Compile Include="Entity\tblStokDurum.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblUrunGirisAlt.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblUrunGirisUst.cs">
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\tblUrunKayitAlt.cs">
@@ -333,6 +339,7 @@
       <LastGenOutput>ErpProModel.cs</LastGenOutput>
     </Content>
     <Content Include="ReadMe.txt" />
+    <None Include="Resources\print.png" />
     <None Include="Resources\minus.png" />
     <None Include="Resources\add.png" />
     <None Include="Resources\close.png" />

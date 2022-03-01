@@ -9,6 +9,7 @@ using IEA_ErpProject.BilgiGiris.Doktorlar;
 using IEA_ErpProject.BilgiGiris.Firmalar;
 using IEA_ErpProject.BilgiGiris.Hastaneler;
 using IEA_ErpProject.BilgiGiris.Urunler;
+using IEA_ErpProject.UrunGiris.Stok;
 using IEA_ErpProject.UrunGiris.Urunler;
 
 namespace IEA_ErpProject.Functions
@@ -135,5 +136,20 @@ namespace IEA_ErpProject.Functions
             return AnaSayfa.Aktarma;
         }
 
+        public int StokDurumAc(bool secim = false)
+        {
+            StokDurum frm = new StokDurum();
+            if (secim)
+            {
+                frm.Secim = true;
+                frm.ShowDialog();
+            }
+            else
+            {
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            return AnaSayfa.Aktarma;
+        }
     }
 }

@@ -58,21 +58,27 @@ namespace IEA_ErpProject.BilgiGiris.Hastaneler
 
         private void Liste_DoubleClick(object sender, EventArgs e)
         {
-            if (Liste.CurrentRow != null) secimId = (int?) Liste.CurrentRow.Cells[1].Value ?? -1;
+            if (Liste.CurrentRow != null) secimId = (int?)Liste.CurrentRow.Cells[1].Value ?? -1;
 
-            if (secimId > 0 &&  Application.OpenForms["HastaneGiris"] == null)
+            if (secimId > 0 && Application.OpenForms["HastaneGiris"] == null && Secim)
             {
 
-                //AnaSayfa.Aktarma=secimId;
+                AnaSayfa.Aktarma = secimId;
                 Close();
-                f.HastaneGirisAc(secimId);
+
 
             }
 
-            else if (Application.OpenForms["HastaneGiris"]!=null)
+            else if (Application.OpenForms["HastaneGiris"] != null && Secim)
             {
                 HastaneGiris frm = Application.OpenForms["HastaneGiris"] as HastaneGiris;
                 frm.Ac(secimId);
+                Close();
+            }
+
+            else if (!Secim)
+            {
+                f.HastaneGirisAc(secimId);
                 Close();
             }
         }

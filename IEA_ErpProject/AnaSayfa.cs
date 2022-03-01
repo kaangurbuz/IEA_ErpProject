@@ -22,6 +22,7 @@ namespace IEA_ErpProject
     {
         readonly Formlar f = new Formlar();
         public static int Aktarma = -1;
+        //private bool closeTab = false;
         public AnaSayfa()
         {
             InitializeComponent();
@@ -127,7 +128,6 @@ namespace IEA_ErpProject
                 frm.Show();
             }
             #endregion
-
             #region Firmalar
             else if (isim == "Firmalar Listesi" && Application.OpenForms["FirmalarListesi"] == null)
             {
@@ -141,7 +141,6 @@ namespace IEA_ErpProject
                 frm.Show();
             }
             #endregion
-
             #region Personeller
             else if (isim == "Personel Bilgi Giris" && Application.OpenForms["PersonelGiris"] == null)
             {
@@ -157,7 +156,6 @@ namespace IEA_ErpProject
                 frm.Show();
             }
             #endregion
-
             #region Urun Kayit
             else if (isim == "Urun Kayit" && Application.OpenForms["UrunKayit"] == null)
             {
@@ -185,13 +183,12 @@ namespace IEA_ErpProject
                 f.UrunGirisListesiAc();
             }
             #endregion
-
+            #region Stok
             else if (isim == "Stok Durum" && Application.OpenForms["StokDurum"] == null)
             {
-                StokDurum frm = new StokDurum();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
-            }
+                f.StokDurumAc();
+            } 
+            #endregion
 
         }
 
@@ -209,6 +206,19 @@ namespace IEA_ErpProject
             }
         }
 
-      
+        private void btnSolUstCollapse_Click(object sender, EventArgs e)
+        {
+            
+            //if (closeTab)
+            //{
+            //    scMenu.Width = 30;
+            //    closeTab = true;
+            //}
+            //else
+            //{
+            //    scMenu.Width = 337;
+            //    closeTab = false;
+            //}
+        }
     }
 }
