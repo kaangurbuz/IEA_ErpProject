@@ -10,9 +10,11 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject.UrunGiris.Urunler
 {
-    public partial class UrunlerListesi : Form
+    public partial class UrunlerGirisListesi : Form
     {
-        public UrunlerListesi()
+        public bool Secim = false;
+
+        public UrunlerGirisListesi()
         {
             InitializeComponent();
         }

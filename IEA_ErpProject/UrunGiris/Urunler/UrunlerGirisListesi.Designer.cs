@@ -1,6 +1,6 @@
 ﻿namespace IEA_ErpProject.UrunGiris.Urunler
 {
-    partial class UrunlerListesi
+    partial class UrunlerGirisListesi
     {
         /// <summary>
         /// Required designer variable.
