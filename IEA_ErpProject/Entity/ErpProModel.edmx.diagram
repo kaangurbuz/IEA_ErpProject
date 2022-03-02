@@ -27,10 +27,10 @@
         <AssociationConnector Association="ErpProject102SModel.FK_tblUrunKayitUst_tblFirmalar" />
         <EntityTypeShape EntityType="ErpProject102SModel.tblStokDurum" Width="1.5" PointX="10.375" PointY="0.75" />
         <EntityTypeShape EntityType="ErpProject102SModel.tblUrunGirisAlt" Width="1.5" PointX="5.375" PointY="0.75" />
-        <EntityTypeShape EntityType="ErpProject102SModel.tblUrunGirisUst" Width="1.5" PointX="12.375" PointY="0.625" />
         <EntityTypeShape EntityType="ErpProject102SModel.tblFirmaDetaylar" Width="1.5" PointX="8.25" PointY="13.25" />
         <AssociationConnector Association="ErpProject102SModel.FK_tblFirmaDetaylar_tblDepartmanlar" />
         <AssociationConnector Association="ErpProject102SModel.FK_tblFirmaDetaylar_tblFirmalar" />
+        <EntityTypeShape EntityType="ErpProject102SModel.tblUrunGirisUst" Width="1.5" PointX="10.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

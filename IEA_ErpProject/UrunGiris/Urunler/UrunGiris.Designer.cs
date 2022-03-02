@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlUst = new System.Windows.Forms.Panel();
             this.BtnPrint = new System.Windows.Forms.Button();
@@ -167,6 +168,7 @@
             this.BtnKaydet.Size = new System.Drawing.Size(38, 38);
             this.BtnKaydet.TabIndex = 5;
             this.BtnKaydet.UseVisualStyleBackColor = true;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // scUrunGiris
             // 
@@ -219,21 +221,22 @@
             this.Uts,
             this.UTarih,
             this.SKTarihi});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.HotPink;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Liste.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.HotPink;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Liste.DefaultCellStyle = dataGridViewCellStyle3;
             this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Liste.Location = new System.Drawing.Point(0, 0);
             this.Liste.Name = "Liste";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightPink;
-            this.Liste.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightPink;
+            this.Liste.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Liste.Size = new System.Drawing.Size(997, 487);
             this.Liste.TabIndex = 1;
+            this.Liste.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellClick);
             this.Liste.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellEndEdit);
             this.Liste.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.Liste_EditingControlShowing);
             // 
@@ -311,6 +314,9 @@
             this.txtGirisTuru.BackColor = System.Drawing.Color.LavenderBlush;
             this.txtGirisTuru.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtGirisTuru.FormattingEnabled = true;
+            this.txtGirisTuru.Items.AddRange(new object[] {
+            "Normal Giris",
+            "Muhtelif Giris"});
             this.txtGirisTuru.Location = new System.Drawing.Point(0, 181);
             this.txtGirisTuru.Name = "txtGirisTuru";
             this.txtGirisTuru.Size = new System.Drawing.Size(286, 21);
@@ -424,7 +430,7 @@
             this.Barkod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Barkod.HeaderText = "Barkod";
             this.Barkod.Name = "Barkod";
-            this.Barkod.Visible = false;
+            this.Barkod.ReadOnly = true;
             this.Barkod.Width = 66;
             // 
             // UrunKodu
@@ -450,6 +456,8 @@
             // Not
             // 
             this.Not.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle2.NullValue = " ";
+            this.Not.DefaultCellStyle = dataGridViewCellStyle2;
             this.Not.HeaderText = "Not";
             this.Not.Name = "Not";
             this.Not.Width = 49;
@@ -459,13 +467,16 @@
             this.UrunId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.UrunId.HeaderText = "UrunId";
             this.UrunId.Name = "UrunId";
+            this.UrunId.ReadOnly = true;
             this.UrunId.Width = 64;
             // 
             // Uts
             // 
             this.Uts.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Uts.FalseValue = "False";
             this.Uts.HeaderText = "UTS";
             this.Uts.Name = "Uts";
+            this.Uts.TrueValue = "True";
             this.Uts.Width = 35;
             // 
             // UTarih
@@ -480,6 +491,7 @@
             this.SKTarihi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.SKTarihi.HeaderText = "Son Kullanma Tarihi";
             this.SKTarihi.Name = "SKTarihi";
+            this.SKTarihi.ReadOnly = true;
             this.SKTarihi.Width = 115;
             // 
             // UrunGiris
