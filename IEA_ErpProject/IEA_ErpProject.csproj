@@ -197,6 +197,9 @@
     <Compile Include="Entity\tblHastaneTipleri.cs">
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\tblPersoneller.cs">
+      <DependentUpon>ErpProModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\tblStokDurum.cs">
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>

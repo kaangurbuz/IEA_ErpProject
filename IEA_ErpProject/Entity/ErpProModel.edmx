@@ -111,6 +111,22 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TipAdi" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="tblPersoneller">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Unvan" Type="nvarchar" MaxLength="30" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="100" />
+          <Property Name="DepartmanId" Type="int" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="20" />
+          <Property Name="Gsm" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="70" />
+          <Property Name="Adress" Type="nvarchar" MaxLength="300" />
+          <Property Name="SehirId" Type="int" />
+          <Property Name="IsBaslangicTarih" Type="datetime" />
+          <Property Name="IsBitisTarih" Type="datetime" />
+        </EntityType>
         <EntityType Name="tblStokDurum">
           <Key>
             <PropertyRef Name="Id" />
@@ -335,6 +351,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tblPersoneller_Sehirler">
+          <End Role="Sehirler" Type="Self.Sehirler" Multiplicity="0..1" />
+          <End Role="tblPersoneller" Type="Self.tblPersoneller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehirler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblPersoneller">
+              <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPersoneller_tblDepartmanlar">
+          <End Role="tblDepartmanlar" Type="Self.tblDepartmanlar" Multiplicity="0..1" />
+          <End Role="tblPersoneller" Type="Self.tblPersoneller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDepartmanlar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblPersoneller">
+              <PropertyRef Name="DepartmanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tblUrunKayitUst_tblFirmalar">
           <End Role="tblFirmalar" Type="Self.tblFirmalar" Multiplicity="0..1" />
           <End Role="tblUrunKayitUst" Type="Self.tblUrunKayitUst" Multiplicity="*" />
@@ -388,6 +428,7 @@
           <EntitySet Name="tblHastaneDetaylar" EntityType="Self.tblHastaneDetaylar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHastaneler" EntityType="Self.tblHastaneler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHastaneTipleri" EntityType="Self.tblHastaneTipleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPersoneller" EntityType="Self.tblPersoneller" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblStokDurum" EntityType="Self.tblStokDurum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUrunGirisAlt" EntityType="Self.tblUrunGirisAlt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUrunGirisUst" EntityType="Self.tblUrunGirisUst" Schema="dbo" store:Type="Tables" />
@@ -436,6 +477,14 @@
           <AssociationSet Name="FK_tblHastaneler_tblHastaneTipleri" Association="Self.FK_tblHastaneler_tblHastaneTipleri">
             <End Role="tblHastaneTipleri" EntitySet="tblHastaneTipleri" />
             <End Role="tblHastaneler" EntitySet="tblHastaneler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPersoneller_Sehirler" Association="Self.FK_tblPersoneller_Sehirler">
+            <End Role="Sehirler" EntitySet="Sehirler" />
+            <End Role="tblPersoneller" EntitySet="tblPersoneller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPersoneller_tblDepartmanlar" Association="Self.FK_tblPersoneller_tblDepartmanlar">
+            <End Role="tblDepartmanlar" EntitySet="tblDepartmanlar" />
+            <End Role="tblPersoneller" EntitySet="tblPersoneller" />
           </AssociationSet>
           <AssociationSet Name="FK_tblUrunKayitUst_tblFirmalar" Association="Self.FK_tblUrunKayitUst_tblFirmalar">
             <End Role="tblFirmalar" EntitySet="tblFirmalar" />
@@ -539,6 +588,15 @@
           <EntitySet Name="tblStokDurum" EntityType="ErpProject102SModel.tblStokDurum" />
           <EntitySet Name="tblUrunGirisAlt" EntityType="ErpProject102SModel.tblUrunGirisAlt" />
           <EntitySet Name="tblUrunGirisUst" EntityType="ErpProject102SModel.tblUrunGirisUst" />
+          <EntitySet Name="tblPersoneller" EntityType="ErpProject102SModel.tblPersoneller" />
+          <AssociationSet Name="FK_tblPersoneller_Sehirler" Association="ErpProject102SModel.FK_tblPersoneller_Sehirler">
+            <End Role="Sehirler" EntitySet="Sehirler" />
+            <End Role="tblPersoneller" EntitySet="tblPersoneller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPersoneller_tblDepartmanlar" Association="ErpProject102SModel.FK_tblPersoneller_tblDepartmanlar">
+            <End Role="tblDepartmanlar" EntitySet="tblDepartmanlar" />
+            <End Role="tblPersoneller" EntitySet="tblPersoneller" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -561,6 +619,7 @@
           <NavigationProperty Name="tblDoktorlar" Relationship="ErpProject102SModel.FK_tblDoktorlar_Sehirler" FromRole="Sehirler" ToRole="tblDoktorlar" />
           <NavigationProperty Name="tblFirmalar" Relationship="ErpProject102SModel.FK_tblFirmalar_Sehirler" FromRole="Sehirler" ToRole="tblFirmalar" />
           <NavigationProperty Name="tblHastaneler" Relationship="ErpProject102SModel.FK_tblHastaneler_Sehirler" FromRole="Sehirler" ToRole="tblHastaneler" />
+          <NavigationProperty Name="tblPersoneller" Relationship="ErpProject102SModel.FK_tblPersoneller_Sehirler" FromRole="Sehirler" ToRole="tblPersoneller" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -581,6 +640,7 @@
           <Property Name="Adi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblFirmaDetaylar" Relationship="ErpProject102SModel.FK_tblFirmaDetaylar_tblDepartmanlar" FromRole="tblDepartmanlar" ToRole="tblFirmaDetaylar" />
           <NavigationProperty Name="tblHastaneDetaylar" Relationship="ErpProject102SModel.FK_tblHastaneDetaylar_tblDepartmanlar" FromRole="tblDepartmanlar" ToRole="tblHastaneDetaylar" />
+          <NavigationProperty Name="tblPersoneller" Relationship="ErpProject102SModel.FK_tblPersoneller_tblDepartmanlar" FromRole="tblDepartmanlar" ToRole="tblPersoneller" />
         </EntityType>
         <EntityType Name="tblDoktorlar">
           <Key>
@@ -917,6 +977,48 @@
           <Property Name="UpdateDate" Type="DateTime" Precision="0" />
           <Property Name="UpdateUser" Type="Int32" />
         </EntityType>
+        <EntityType Name="tblPersoneller">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Unvan" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Adi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmanId" Type="Int32" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Gsm" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Adress" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="SehirId" Type="Int32" />
+          <Property Name="IsBaslangicTarih" Type="DateTime" Precision="3" />
+          <Property Name="IsBitisTarih" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Sehirler" Relationship="ErpProject102SModel.FK_tblPersoneller_Sehirler" FromRole="tblPersoneller" ToRole="Sehirler" />
+          <NavigationProperty Name="tblDepartmanlar" Relationship="ErpProject102SModel.FK_tblPersoneller_tblDepartmanlar" FromRole="tblPersoneller" ToRole="tblDepartmanlar" />
+        </EntityType>
+        <Association Name="FK_tblPersoneller_Sehirler">
+          <End Type="ErpProject102SModel.Sehirler" Role="Sehirler" Multiplicity="0..1" />
+          <End Type="ErpProject102SModel.tblPersoneller" Role="tblPersoneller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehirler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblPersoneller">
+              <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPersoneller_tblDepartmanlar">
+          <End Type="ErpProject102SModel.tblDepartmanlar" Role="tblDepartmanlar" Multiplicity="0..1" />
+          <End Type="ErpProject102SModel.tblPersoneller" Role="tblPersoneller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDepartmanlar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblPersoneller">
+              <PropertyRef Name="DepartmanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1155,6 +1257,23 @@
                 <ScalarProperty Name="CariAdi" ColumnName="CariAdi" />
                 <ScalarProperty Name="CariTip" ColumnName="CariTip" />
                 <ScalarProperty Name="GirisId" ColumnName="GirisId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPersoneller">
+            <EntityTypeMapping TypeName="ErpProject102SModel.tblPersoneller">
+              <MappingFragment StoreEntitySet="tblPersoneller">
+                <ScalarProperty Name="IsBitisTarih" ColumnName="IsBitisTarih" />
+                <ScalarProperty Name="IsBaslangicTarih" ColumnName="IsBaslangicTarih" />
+                <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gsm" ColumnName="Gsm" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Unvan" ColumnName="Unvan" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

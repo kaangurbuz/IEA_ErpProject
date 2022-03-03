@@ -83,12 +83,11 @@ namespace IEA_ErpProject.UrunGiris.Urunler
 
                     break;
                 case "Personel":
-                    //CariId = f.PersonellerListesiAc(true);
-                    //if (CariId > 0)
-                    //{
-                    //    DoktorAc(CariId);
-                    //}
-                    txtCariAdi.Text = "Yapim Asamasinda";
+                    cariId = f.PersonellerListesiAc(true);
+                    if (cariId > 0)
+                    {
+                        PersonelAc(cariId);
+                    }
                     break;
                 case "Firma":
                     cariId = f.FirmalarListesiAc(true);
@@ -104,6 +103,11 @@ namespace IEA_ErpProject.UrunGiris.Urunler
             }
 
             AnaSayfa.Aktarma = -1;
+        }
+
+        private void PersonelAc(int cariId)
+        {
+            txtCariAdi.Text = _db.tblPersoneller.FirstOrDefault(s => s.Id == cariId)?.Adi;
         }
 
         private void FirmaAc(int cariId)
@@ -245,7 +249,7 @@ namespace IEA_ErpProject.UrunGiris.Urunler
             }
             else if (txtCariTur.Text == "Personel")
             {
-                //ust.CariId = _db.tblPersoneller.FirstOrDefault(x => x.Adi == txtCariAdi.Text).Id;
+                ust.CariId = _db.tblPersoneller.FirstOrDefault(x => x.Adi == txtCariAdi.Text)?.Id;
             }
             else if (txtCariTur.Text == "Firma")
             {
