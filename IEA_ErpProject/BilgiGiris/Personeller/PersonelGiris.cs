@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using IEA_ErpProject.BilgiGiris.Doktorlar;
 using IEA_ErpProject.Entity;
 using IEA_ErpProject.Functions;
+using IEA_ErpProject.Properties;
 
 namespace IEA_ErpProject.BilgiGiris.Personeller
 {
@@ -17,12 +18,12 @@ namespace IEA_ErpProject.BilgiGiris.Personeller
     {
         private readonly ErpProject102SEntities _db = new ErpProject102SEntities();
         private int secimId = -1;
-        //private tblPersoneller kayitBul;
+        private tblPersoneller kayitBul;
         private readonly Formlar f = new Formlar();
-        //private List<tblPersoneller> prsList;
+        private List<tblPersoneller> prsList;
         public PersonelGiris()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
 
         private void PersonelGiris_Load(object sender, EventArgs e)
@@ -42,20 +43,6 @@ namespace IEA_ErpProject.BilgiGiris.Personeller
             txtDepartman.ValueMember = "Id";
             txtDepartman.DisplayMember = "Adi";
             txtDepartman.SelectedIndex = -1;
-
-            txtUnvan.DataSource = Enum.GetValues(typeof(Unvan)).Cast<Enum>()
-                .Select(value => new
-                {
-                    (Attribute.GetCustomAttribute(value.GetType().GetField(value.ToString()), typeof(DescriptionAttribute)) as DescriptionAttribute).Description,
-                    value
-                })
-                .OrderBy(item => item.value)
-                .ToList();
-
-            txtUnvan.DisplayMember = "Description";
-            txtUnvan.ValueMember = "Value";
-
-            txtUnvan.SelectedIndex = -1;
         }
 
         private void Listele()
@@ -63,20 +50,20 @@ namespace IEA_ErpProject.BilgiGiris.Personeller
             Liste.Rows.Clear();
             int i = 0;
 
-            //prsList = (from s in _db.tblPersoneller select s).ToList(); //LINQ sorgusu
+            prsList = (from s in _db.tblPersoneller select s).ToList(); //LINQ sorgusu
 
-            //foreach (var item in prsList)
-            //{
-            //    Liste.Rows.Add();
-            //    Liste.Rows[i].Cells[0].Value = i + 1;
-            //    Liste.Rows[i].Cells[1].Value = item.Id;
-            //    Liste.Rows[i].Cells[2].Value = item.Unvan;
-            //    Liste.Rows[i].Cells[3].Value = item.Adi;
-            //    Liste.Rows[i].Cells[4].Value = item.tblDepartmanlar.Adi;
-            //    Liste.Rows[i].Cells[5].Value = item.Tel;
-            //    Liste.Rows[i].Cells[6].Value = item.Sehirler.name;
-            //    i++;
-            //}
+            foreach (var item in prsList)
+            {
+                Liste.Rows.Add();
+                Liste.Rows[i].Cells[0].Value = i + 1;
+                Liste.Rows[i].Cells[1].Value = item.Id;
+                Liste.Rows[i].Cells[2].Value = item.Unvan;
+                Liste.Rows[i].Cells[3].Value = item.Adi;
+                Liste.Rows[i].Cells[4].Value = item.tblDepartmanlar.Adi;
+                Liste.Rows[i].Cells[5].Value = item.Tel;
+                Liste.Rows[i].Cells[6].Value = item.Sehirler.name;
+                i++;
+            }
 
             Liste.AllowUserToAddRows = false; // kullanicinin satir eklemesini engeller
             Liste.AllowUserToDeleteRows = false; // kullanici kayit silemesin
@@ -100,23 +87,23 @@ namespace IEA_ErpProject.BilgiGiris.Personeller
             try
             {
 
-                //tblPersoneller prs = new tblPersoneller();
-                //prs.Adi = txtPAdi.Text;
-                //prs.Adress = txtAdres.Text;
-                //prs.Unvan = txtUnvan.Text;
-                //if (txtSehir.SelectedValue != null) prs.SehirId = (int)txtSehir.SelectedValue;
-                //prs.Tel = txtTelefon.Text;
-                //prs.Email = txtEmail.Text;
-                //prs.Gsm = txtGsm.Text;
-                //if (txtDepartman.SelectedValue != null) prs.DepartmanId = (int)txtDepartman.SelectedValue;
-                ////prs.IsBaslangicTarih = txtIsBaslangic.Value.ToString();
-                ////prs.IsBitisTarih = txtIsBitis.Value;
+                tblPersoneller prs = new tblPersoneller();
+                prs.Adi = txtPAdi.Text;
+                prs.Adress = txtAdres.Text;
+                prs.Unvan = txtUnvan.Text;
+                if (txtSehir.SelectedValue != null) prs.SehirId = (int)txtSehir.SelectedValue;
+                prs.Tel = txtTelefon.Text;
+                prs.Email = txtEmail.Text;
+                prs.Gsm = txtGsm.Text;
+                if (txtDepartman.SelectedValue != null) prs.DepartmanId = (int)txtDepartman.SelectedValue;
+                prs.IsBaslangicTarih = txtIsBaslangic.Value;
+                prs.IsBitisTarih = txtIsBitis.Value;
 
-                //_db.tblPersoneller.Add(prs);
-                //_db.SaveChanges();
-                //MessageBox.Show("Kayit islemi gerceklestirildi");
-                //Listele();
-                //Temizle();
+                _db.tblPersoneller.Add(prs);
+                _db.SaveChanges();
+                MessageBox.Show("Kayit islemi gerceklestirildi");
+                Listele();
+                Temizle();
 
             }
             catch (Exception e)
@@ -160,42 +147,146 @@ namespace IEA_ErpProject.BilgiGiris.Personeller
 
         public void Ac(int secimId)
         {
-            //if (secimId < 0)
-            //{
-            //    MessageBox.Show("Kayit id bulunamamistir!");
-            //    return;
-            //}
+            if (secimId < 0)
+            {
+                MessageBox.Show("Kayit id bulunamamistir!");
+                return;
+            }
 
-            //BtnDetayEkle.Visible = true;
-            //BtnDetayGoster.Visible = true;
+            BtnDetayEkle.Visible = true;
+            BtnDetayGoster.Visible = true;
 
-            ////tblHastaneler kayitBul1 = _db.tblHastaneler.Find(secimId);
-            //kayitBul = prsList.FirstOrDefault(x => x.Id == secimId);
+            //tblHastaneler kayitBul1 = _db.tblHastaneler.Find(secimId);
+            kayitBul = prsList.FirstOrDefault(x => x.Id == secimId);
 
-            //try
-            //{
-            //    if (kayitBul != null)
-            //    {
-            //        txtGsm.Text = kayitBul.Gsm;
-            //        txtTelefon.Text = kayitBul.Tel;
-            //        txtSehir.Text = kayitBul.Sehirler.name;
-            //        txtAdres.Text = kayitBul.Adress;
-            //        txtUnvan.Text = kayitBul.Unvan;
-            //        txtEmail.Text = kayitBul.Email;
-            //        txtPAdi.Text = kayitBul.Adi;
-            //        txtTelefon.Text = kayitBul.Tel;
-            //        txtDepartman.Text = kayitBul.tblDepartmanlar.Adi;
-            //        //txtIsBaslangic.Text = kayitBul.IsBaslangicTarih.ToString();
-            //        //txtIsBitis.Text = kayitBul.IsBitisTarih.ToString();
-            //        txtPersonelBul.Text = kayitBul.Id.ToString().PadLeft(5, '0');
-            //    }
-            //}
-            //catch (Exception e)
-            //{
+            try
+            {
+                if (kayitBul != null)
+                {
+                    txtGsm.Text = kayitBul.Gsm;
+                    txtTelefon.Text = kayitBul.Tel;
+                    txtSehir.Text = kayitBul.Sehirler.name;
+                    txtAdres.Text = kayitBul.Adress;
+                    txtUnvan.Text = kayitBul.Unvan;
+                    txtEmail.Text = kayitBul.Email;
+                    txtPAdi.Text = kayitBul.Adi;
+                    txtTelefon.Text = kayitBul.Tel;
+                    txtDepartman.Text = kayitBul.tblDepartmanlar.Adi;
+                    txtIsBaslangic.Text = kayitBul.IsBaslangicTarih.ToString();
+                    txtIsBitis.Text = kayitBul.IsBitisTarih.ToString();
+                    txtPersonelBul.Text = kayitBul.Id.ToString().PadLeft(5, '0');
+                }
+            }
+            catch (Exception e)
+            {
 
-            //    MessageBox.Show(e.Message + " Hata Kodu : HGListeleme101");
-            //}
+                MessageBox.Show(e.Message + " Hata Kodu : HGListeleme101");
+            }
 
+        }
+
+        private void BtnKapat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void BtnGuncelle_Click(object sender, EventArgs e)
+        {
+            Guncelle();
+        }
+
+        private void Guncelle()
+        {
+            if (secimId < 0)
+            {
+                MessageBox.Show("Degistirilecek kayit bulunamadi, once bir kayit secin!");
+                return;
+            }
+            try
+            {
+                if (kayitBul != null)
+                {
+                    kayitBul.Gsm = txtGsm.Text;
+                    kayitBul.Tel = txtTelefon.Text;
+                    kayitBul.SehirId = (int?)txtSehir.SelectedValue;
+                    kayitBul.Adress = txtAdres.Text;
+                    kayitBul.Unvan = txtUnvan.Text;
+                    kayitBul.Email = txtEmail.Text;
+                    kayitBul.Adi = txtPAdi.Text;
+                    kayitBul.Tel = txtTelefon.Text;
+                    kayitBul.tblDepartmanlar.Adi = txtDepartman.Text;
+                    kayitBul.IsBaslangicTarih = DateTime.Parse(txtIsBaslangic.Text);
+                    kayitBul.IsBitisTarih = DateTime.Parse(txtIsBitis.Text);
+
+                }
+
+                _db.SaveChanges();
+                MessageBox.Show("Guncelleme Yapildi!");
+                Temizle();
+                Listele();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message + " Hata Kodu : PGGuncelleme101");
+            }
+
+        }
+
+        private void BtnSil_Click(object sender, EventArgs e)
+        {
+
+            if (secimId < 0)
+            {
+                MessageBox.Show("Lutfen silinecek kaydi sectiginizden emin olunuz!.", "Uyari", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult dialogResult = MessageBox.Show("Kayidi silmek istediginize emin misiniz ?", "Kayit Silme Islemi",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                Sil();
+            }
+        }
+
+        private void Sil()
+        {
+            if (secimId > 0)
+            {
+                _db.tblPersoneller.Remove(kayitBul);
+                _db.SaveChanges();
+                MessageBox.Show("Kaydiniz silinmistir! Gecmis Olsun.");
+                Temizle();
+                Listele();
+            }
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            var btn = new Button();
+            btn.Size = new Size(20, txtPersonelBul.ClientSize.Height);
+            btn.Location = new Point(txtPersonelBul.ClientSize.Width - btn.Width - 1);
+            btn.Cursor = Cursors.Default;
+            btn.BackgroundImage = Resources.dots;
+            btn.BackgroundImageLayout = ImageLayout.Stretch;
+            btn.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+            txtPersonelBul.Controls.Add(btn);
+            base.OnLoad(e);
+            btn.Click += Btn_Click;
+        }
+
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            int id = f.PersonellerListesiAc(true);
+
+            if (id > 0)
+            {
+                Ac(id);
+            }
+
+            AnaSayfa.Aktarma = -1;
         }
     }
 }
