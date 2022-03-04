@@ -18,6 +18,7 @@ namespace IEA_ErpProject.UrunGiris.Urunler
         private readonly Formlar f = new Formlar();
         private readonly ErpProject102SEntities _db = new ErpProject102SEntities();
         private string[] urunList;
+        private readonly Numaralar n = new Numaralar();
 
         public string[] MyArray { get; set; }
 
@@ -28,7 +29,7 @@ namespace IEA_ErpProject.UrunGiris.Urunler
 
         private void UrunGiris_Load(object sender, EventArgs e)
         {
-
+            txtGirisId.Text = n.UGirisNo();
         }
 
         protected override void OnLoad(EventArgs e)
@@ -58,7 +59,14 @@ namespace IEA_ErpProject.UrunGiris.Urunler
 
         private void BtnGiris_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("islem calisiyor");
+            int id = f.UrunGirisListesiAc(true);
+
+            if (id > 0)
+            {
+                UrunAc(id);
+            }
+
+            AnaSayfa.Aktarma = -1;
         }
 
         private void Btn_Click(object sender, EventArgs e)
@@ -274,37 +282,39 @@ namespace IEA_ErpProject.UrunGiris.Urunler
 
             Liste.AllowUserToAddRows = false;
             tblUrunGirisAlt[] alt = new tblUrunGirisAlt[Liste.Rows.Count];
-            tblStokDurum[] durums = new tblStokDurum[Liste.RowCount];
+            //tblStokDurum[] durums = new tblStokDurum[Liste.RowCount];
 
 
             for (int i = 0; i < Liste.Rows.Count; i++)
             {
-                if (Convert.ToInt32(Liste.Rows[i].Cells[7].Value) == 0)
-                {
-                    durums[i] = new tblStokDurum();
-                    durums[i].UrunKodu = Liste.Rows[i].Cells[3].Value.ToString();
-                    durums[i].Barkod = Liste.Rows[i].Cells[2].Value.ToString();
-                    durums[i].BransNo = "";
-                    durums[i].KonsinyeAdet = 0;
-                    durums[i].LotSeriNo = Liste.Rows[i].Cells[4].Value.ToString();
-                    durums[i].RafAdet = Convert.ToInt32( Liste.Rows[i].Cells[5].Value.ToString());
-                    durums[i].StokAdet = Convert.ToInt32( Liste.Rows[i].Cells[5].Value.ToString());
-                    durums[i].SonKullanmaTarih = Convert.ToDateTime(Liste.Rows[i].Cells[10].Value);
-                    durums[i].SubeAdet = 0;
-                    durums[i].SutKodu = "";
-                    durums[i].UretimTarih = Convert.ToDateTime(Liste.Rows[i].Cells[9].Value);
-                    durums[i].UTS = Convert.ToBoolean(Liste.Rows[i].Cells[8].Value);
-                    durums[i].UrunHareketAdet = 0;
-                    _db.tblStokDurum.Add(durums[i]);
-                }
-                else
-                {
-                    var urunId = Convert.ToInt32(Liste.Rows[i].Cells[7].Value);
-                    var srg = _db.tblStokDurum.FirstOrDefault(s => s.Id == urunId);
-                    srg.StokAdet += Convert.ToInt32(Liste.Rows[i].Cells[5].Value);
-                    srg.RafAdet += Convert.ToInt32(Liste.Rows[i].Cells[5].Value);
-                }
-                ///////////////////////////////
+                #region trigger'a yaptirilan stok durum
+                //if (Convert.ToInt32(Liste.Rows[i].Cells[7].Value) == 0)
+                //{
+                //    durums[i] = new tblStokDurum();
+                //    durums[i].UrunKodu = Liste.Rows[i].Cells[3].Value.ToString();
+                //    durums[i].Barkod = Liste.Rows[i].Cells[2].Value.ToString();
+                //    durums[i].BransNo = "";
+                //    durums[i].KonsinyeAdet = 0;
+                //    durums[i].LotSeriNo = Liste.Rows[i].Cells[4].Value.ToString();
+                //    durums[i].RafAdet = Convert.ToInt32( Liste.Rows[i].Cells[5].Value.ToString());
+                //    durums[i].StokAdet = Convert.ToInt32( Liste.Rows[i].Cells[5].Value.ToString());
+                //    durums[i].SonKullanmaTarih = Convert.ToDateTime(Liste.Rows[i].Cells[10].Value);
+                //    durums[i].SubeAdet = 0;
+                //    durums[i].SutKodu = "";
+                //    durums[i].UretimTarih = Convert.ToDateTime(Liste.Rows[i].Cells[9].Value);
+                //    durums[i].UTS = Convert.ToBoolean(Liste.Rows[i].Cells[8].Value);
+                //    durums[i].UrunHareketAdet = 0;
+                //    _db.tblStokDurum.Add(durums[i]);
+                //}
+                //else
+                //{
+                //    var urunId = Convert.ToInt32(Liste.Rows[i].Cells[7].Value);
+                //    var srg = _db.tblStokDurum.FirstOrDefault(s => s.Id == urunId);
+                //    srg.StokAdet += Convert.ToInt32(Liste.Rows[i].Cells[5].Value);
+                //    srg.RafAdet += Convert.ToInt32(Liste.Rows[i].Cells[5].Value);
+                //}
+                /////////////////////////////// 
+                #endregion
                 alt[i] = new tblUrunGirisAlt();
                 alt[i].GirisAdet = Convert.ToInt32(Liste.Rows[i].Cells[5].Value);
                 alt[i].Barkod = Liste.Rows[i].Cells[2].Value.ToString();
@@ -325,6 +335,24 @@ namespace IEA_ErpProject.UrunGiris.Urunler
             _db.tblUrunGirisUst.Add(ust);
             _db.SaveChanges();
             MessageBox.Show("Kayit Basariyla Olusturuldu!");
+            Temizle();
+        }
+
+        private void Temizle()
+        {
+            foreach (Control item in scUrunGiris.Panel2.Controls)
+            {
+                if (item is TextBox || item is ComboBox||item is DateTimePicker)
+                {
+                    if (item.Name != txtGirisId.Name)
+                    {
+                        item.Text = "";
+                    }
+                }
+
+                txtCariTur.SelectedIndex = -1;
+                Liste.Rows.Clear();
+            }
         }
 
         private void Liste_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -375,6 +403,51 @@ namespace IEA_ErpProject.UrunGiris.Urunler
             }
         }
 
-        
+        private void BtnTemizle_Click(object sender, EventArgs e)
+        {
+            Temizle();
+        }
+
+        public void UrunAc(int GirisId)
+        {
+            Temizle();
+            var ust = _db.tblUrunGirisUst.FirstOrDefault(x => x.GirisId == GirisId);
+            if (ust != null)
+            {
+                txtGirisId.Text = ust.GirisId.ToString().PadLeft(7,'0');
+                txtCariTur.Text = ust.CariTip;
+                txtCariAdi.Text = ust.CariAdi;
+                txtFaturaNo.Text = ust.FaturaNo;
+                txtGirisTarihi.Text = ust.GirisTarih.ToString();
+                txtAciklama.Text = ust.Aciklama;
+                txtGirisTuru.Text = ust.GirisTuru;
+
+            }
+            else
+            {
+                MessageBox.Show("Istek sirasinda bir hata meydana geldi! \n Tekrar deneyin!");
+                return;
+            }
+
+            Liste.AllowUserToAddRows = false;
+            var alt = _db.tblUrunGirisAlt.Where(s => s.GirisId == GirisId).ToList();
+            int i = 0;
+            foreach (var item in alt)
+            {
+                Liste.Rows.Add();
+                Liste.Rows[i].Cells[0].Value = item.Id;
+                Liste.Rows[i].Cells[1].Value = i+1;
+                Liste.Rows[i].Cells[2].Value = item.Barkod;
+                Liste.Rows[i].Cells[3].Value = item.UrunKodu;
+                Liste.Rows[i].Cells[4].Value = item.LotSeriNo;
+                Liste.Rows[i].Cells[5].Value = item.GirisAdet;
+                Liste.Rows[i].Cells[6].Value = item.Aciklama;
+                Liste.Rows[i].Cells[7].Value = item.GirisId;
+                Liste.Rows[i].Cells[8].Value = item.UTS;
+                Liste.Rows[i].Cells[9].Value = item.UretimTarihi;
+                Liste.Rows[i].Cells[10].Value = item.SonKullanmaTarihi;
+                i++;
+            }
+        }
     }
 }
