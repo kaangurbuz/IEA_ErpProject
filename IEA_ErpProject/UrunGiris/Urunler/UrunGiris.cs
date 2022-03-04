@@ -19,6 +19,9 @@ namespace IEA_ErpProject.UrunGiris.Urunler
         private readonly ErpProject102SEntities _db = new ErpProject102SEntities();
         private string[] urunList;
         private readonly Numaralar n = new Numaralar();
+        private int secimId = -1;
+        private List<tblUrunGirisAlt> altList = new List<tblUrunGirisAlt>();
+
 
         public string[] MyArray { get; set; }
 
@@ -410,6 +413,7 @@ namespace IEA_ErpProject.UrunGiris.Urunler
 
         public void UrunAc(int GirisId)
         {
+            secimId = GirisId;
             Temizle();
             var ust = _db.tblUrunGirisUst.FirstOrDefault(x => x.GirisId == GirisId);
             if (ust != null)
@@ -421,6 +425,7 @@ namespace IEA_ErpProject.UrunGiris.Urunler
                 txtGirisTarihi.Text = ust.GirisTarih.ToString();
                 txtAciklama.Text = ust.Aciklama;
                 txtGirisTuru.Text = ust.GirisTuru;
+                etiketId.Text = ust.Id.ToString().PadLeft(7, '0');
 
             }
             else
@@ -430,9 +435,9 @@ namespace IEA_ErpProject.UrunGiris.Urunler
             }
 
             Liste.AllowUserToAddRows = false;
-            var alt = _db.tblUrunGirisAlt.Where(s => s.GirisId == GirisId).ToList();
+            altList = _db.tblUrunGirisAlt.Where(s => s.GirisId == GirisId).ToList();
             int i = 0;
-            foreach (var item in alt)
+            foreach (var item in altList)
             {
                 Liste.Rows.Add();
                 Liste.Rows[i].Cells[0].Value = item.Id;
@@ -446,8 +451,108 @@ namespace IEA_ErpProject.UrunGiris.Urunler
                 Liste.Rows[i].Cells[8].Value = item.UTS;
                 Liste.Rows[i].Cells[9].Value = item.UretimTarihi;
                 Liste.Rows[i].Cells[10].Value = item.SonKullanmaTarihi;
+                Liste.Rows[i].Cells[11].Value = false;
                 i++;
             }
+        }
+
+        private void BtnGuncelle_Click(object sender, EventArgs e)
+        {
+            Guncelle();
+        }
+
+        private void Guncelle()
+        {
+            if (secimId ==-1)
+            {
+            {
+                MessageBox.Show("Guncelleme icin bir kayit secin!");
+                return;
+            }};
+            var ust = _db.tblUrunGirisUst.FirstOrDefault(x => x.GirisId == secimId);
+            ust.GirisId = Convert.ToInt32(txtGirisId.Text);
+            ust.CariTip = txtCariTur.Text;
+            ust.CariAdi = txtCariAdi.Text;
+            ust.GirisTuru = txtGirisTuru.Text;
+            ust.FaturaNo = txtFaturaNo.Text;
+            ust.GirisTarih = txtGirisTarihi.Value;
+            ust.Aciklama = txtAciklama.Text;
+            _db.SaveChanges();
+
+            var alt = (from s in _db.tblUrunGirisAlt where s.GirisId == secimId select s).ToList();
+
+            for (int i = 0; i < Liste.RowCount; i++)
+            {
+                if ((bool)Liste.Rows[i].Cells[11].Value == false)
+                {
+                    string newBarkod = Liste.Rows[i].Cells[3].Value.ToString()+"/"+Liste.Rows[i].Cells[4].Value.ToString();
+
+                    string brk = Liste.Rows[i].Cells[2].Value.ToString();
+                    var stk = _db.tblStokDurum.FirstOrDefault(s => s.Barkod == brk);
+
+                    //stk.Barkod = newBarkod;
+                    //stk.UrunKodu = Liste.Rows[i].Cells[3].Value.ToString();
+                    //stk.LotSeriNo = Liste.Rows[i].Cells[4].Value.ToString();
+
+
+                    var adet = Convert.ToInt32(Liste.Rows[i].Cells[5].Value);
+
+
+                    stk.StokAdet -= adet;
+                    stk.RafAdet -= adet;
+
+
+
+
+
+
+
+
+
+
+                    _db.SaveChanges();
+
+                    alt[i].Barkod = newBarkod;
+                    alt[i].UrunKodu = Liste.Rows[i].Cells[3].Value.ToString();
+                    alt[i].LotSeriNo = Liste.Rows[i].Cells[4].Value.ToString();
+                    alt[i].GirisAdet = Convert.ToInt32(Liste.Rows[i].Cells[5].Value.ToString());
+                    alt[i].Aciklama = Liste.Rows[i].Cells[6].Value.ToString();
+                    alt[i].GirisTarih = txtGirisTarihi.Value;
+                    alt[i].BransNo = "";
+                    alt[i].UTS = Convert.ToBoolean(Liste.Rows[i].Cells[8].Value);
+                    alt[i].UretimTarihi = Convert.ToDateTime(Liste.Rows[i].Cells[9].Value.ToString());
+                    alt[i].SonKullanmaTarihi = Convert.ToDateTime(Liste.Rows[i].Cells[10].Value.ToString());
+                    
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    
+                }
+            }
+        }
+
+        private void BtnListeEkle_Click(object sender, EventArgs e)
+        {
+            if (Liste.AllowUserToAddRows == true)
+            {
+                Liste.AllowUserToAddRows = false;
+                //YeniKayitBool = false;
+
+            }
+            else
+            {
+                Liste.AllowUserToAddRows = true;
+                //YeniKayitBool = true;
+                var srg = Liste.RowCount;
+                if (Liste.CurrentRow != null) Liste.Rows[srg - 1].Cells[11].Value = true;
+
+            }
+        }
+
+        private void BtnListeSatirSil_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
