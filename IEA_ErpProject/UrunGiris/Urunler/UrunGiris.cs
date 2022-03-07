@@ -444,7 +444,9 @@ namespace IEA_ErpProject.UrunGiris.Urunler
                 Liste.Rows[i].Cells[1].Value = i+1;
                 Liste.Rows[i].Cells[2].Value = item.Barkod;
                 Liste.Rows[i].Cells[3].Value = item.UrunKodu;
+                Liste.Rows[i].Cells[3].ReadOnly = true;
                 Liste.Rows[i].Cells[4].Value = item.LotSeriNo;
+                Liste.Rows[i].Cells[4].ReadOnly = true;
                 Liste.Rows[i].Cells[5].Value = item.GirisAdet;
                 Liste.Rows[i].Cells[6].Value = item.Aciklama;
                 Liste.Rows[i].Cells[7].Value = item.GirisId;
@@ -497,39 +499,46 @@ namespace IEA_ErpProject.UrunGiris.Urunler
 
                     var adet = Convert.ToInt32(Liste.Rows[i].Cells[5].Value);
 
-
+                    
                     stk.StokAdet -= adet;
                     stk.RafAdet -= adet;
 
-
-
-
-
-
-
-
-
-
-                    _db.SaveChanges();
 
                     alt[i].Barkod = newBarkod;
                     alt[i].UrunKodu = Liste.Rows[i].Cells[3].Value.ToString();
                     alt[i].LotSeriNo = Liste.Rows[i].Cells[4].Value.ToString();
                     alt[i].GirisAdet = Convert.ToInt32(Liste.Rows[i].Cells[5].Value.ToString());
-                    alt[i].Aciklama = Liste.Rows[i].Cells[6].Value.ToString();
+                    if (Liste.Rows[i].Cells[6].Value != null) alt[i].Aciklama = Liste.Rows[i].Cells[6].Value.ToString();
                     alt[i].GirisTarih = txtGirisTarihi.Value;
                     alt[i].BransNo = "";
                     alt[i].UTS = Convert.ToBoolean(Liste.Rows[i].Cells[8].Value);
                     alt[i].UretimTarihi = Convert.ToDateTime(Liste.Rows[i].Cells[9].Value.ToString());
                     alt[i].SonKullanmaTarihi = Convert.ToDateTime(Liste.Rows[i].Cells[10].Value.ToString());
                     
-                    _db.SaveChanges();
+                   
                 }
                 else
                 {
+                    alt.Add(null);
+                    alt[i] = new tblUrunGirisAlt();
+                    alt[i].GirisId = Convert.ToInt32(txtGirisId.Text);
+                    alt[i].Barkod = Liste.Rows[i].Cells[2].Value.ToString();
+                    alt[i].UrunKodu = Liste.Rows[i].Cells[3].Value.ToString();
+                    alt[i].LotSeriNo = Liste.Rows[i].Cells[4].Value.ToString();
+                    alt[i].GirisAdet = Convert.ToInt32(Liste.Rows[i].Cells[5].Value.ToString());
+                    if(Liste.Rows[i].Cells[6].Value!=null)alt[i].Aciklama = Liste.Rows[i].Cells[6].Value.ToString();
+                    alt[i].GirisTarih = txtGirisTarihi.Value;
+                    alt[i].BransNo = "";
+                    alt[i].UTS = Convert.ToBoolean(Liste.Rows[i].Cells[8].Value);
+                    alt[i].UretimTarihi = Convert.ToDateTime(Liste.Rows[i].Cells[9].Value.ToString());
+                    alt[i].SonKullanmaTarihi = Convert.ToDateTime(Liste.Rows[i].Cells[10].Value.ToString());
+                    _db.tblUrunGirisAlt.Add(alt[i]);
                     
                 }
+               
             }
+            _db.SaveChanges();
+            MessageBox.Show("Guncellenme islemi basarili!");
         }
 
         private void BtnListeEkle_Click(object sender, EventArgs e)

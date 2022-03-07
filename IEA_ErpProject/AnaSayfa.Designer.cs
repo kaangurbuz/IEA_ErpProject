@@ -283,6 +283,7 @@
             this.Name = "AnaSayfa";
             this.Text = "AnaSayfa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AnaSayfa_FormClosing);
             this.Load += new System.EventHandler(this.AnaSayfa_Load);
             this.tabPGenel.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

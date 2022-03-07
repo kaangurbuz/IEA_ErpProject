@@ -197,6 +197,11 @@ namespace IEA_ErpProject
             
             //Close();
             //Application.Exit();
+            Cikis();
+        }
+
+        private void Cikis()
+        {
             DialogResult dialogResult = MessageBox.Show("Programdan cikis yapmak istediginize emin misiniz ?", "Cikis Islemi",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -204,6 +209,8 @@ namespace IEA_ErpProject
             {
                 Application.ExitThread();
             }
+         
+           
         }
 
         private void btnSolUstCollapse_Click(object sender, EventArgs e)
@@ -219,6 +226,21 @@ namespace IEA_ErpProject
             //    scMenu.Width = 337;
             //    closeTab = false;
             //}
+        }
+
+        private void AnaSayfa_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Programdan cikis yapmak istediginize emin misiniz ?", "Cikis Islemi",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.ExitThread();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

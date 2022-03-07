@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlUst = new System.Windows.Forms.Panel();
             this.BtnPrint = new System.Windows.Forms.Button();
@@ -43,6 +43,10 @@
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.scUrunGiris = new System.Windows.Forms.SplitContainer();
             this.Liste = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnListeSatirSil = new System.Windows.Forms.Button();
+            this.BtnListeEkle = new System.Windows.Forms.Button();
+            this.etiketId = new System.Windows.Forms.Label();
             this.txtAciklama = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtGirisTarihi = new System.Windows.Forms.DateTimePicker();
@@ -57,10 +61,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtGirisId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnListeSatirSil = new System.Windows.Forms.Button();
-            this.BtnListeEkle = new System.Windows.Forms.Button();
-            this.etiketId = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Barkod = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -215,8 +215,8 @@
             // 
             // Liste
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LavenderBlush;
-            this.Liste.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.Liste.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Liste.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -232,24 +232,74 @@
             this.UTarih,
             this.SKTarihi,
             this.Durum});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.HotPink;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Liste.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.HotPink;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Liste.DefaultCellStyle = dataGridViewCellStyle4;
             this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Liste.Location = new System.Drawing.Point(0, 42);
             this.Liste.Name = "Liste";
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.LightPink;
-            this.Liste.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightPink;
+            this.Liste.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.Liste.Size = new System.Drawing.Size(997, 445);
             this.Liste.TabIndex = 1;
             this.Liste.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellClick);
             this.Liste.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellEndEdit);
             this.Liste.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.Liste_EditingControlShowing);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.panel1.Controls.Add(this.BtnListeSatirSil);
+            this.panel1.Controls.Add(this.BtnListeEkle);
+            this.panel1.Controls.Add(this.etiketId);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(997, 42);
+            this.panel1.TabIndex = 2;
+            // 
+            // BtnListeSatirSil
+            // 
+            this.BtnListeSatirSil.BackgroundImage = global::IEA_ErpProject.Properties.Resources.minus;
+            this.BtnListeSatirSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnListeSatirSil.FlatAppearance.BorderSize = 0;
+            this.BtnListeSatirSil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnListeSatirSil.Location = new System.Drawing.Point(918, 4);
+            this.BtnListeSatirSil.Name = "BtnListeSatirSil";
+            this.BtnListeSatirSil.Size = new System.Drawing.Size(35, 35);
+            this.BtnListeSatirSil.TabIndex = 1;
+            this.BtnListeSatirSil.UseVisualStyleBackColor = false;
+            this.BtnListeSatirSil.Click += new System.EventHandler(this.BtnListeSatirSil_Click);
+            // 
+            // BtnListeEkle
+            // 
+            this.BtnListeEkle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.add;
+            this.BtnListeEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnListeEkle.FlatAppearance.BorderSize = 0;
+            this.BtnListeEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnListeEkle.Location = new System.Drawing.Point(959, 4);
+            this.BtnListeEkle.Name = "BtnListeEkle";
+            this.BtnListeEkle.Size = new System.Drawing.Size(35, 35);
+            this.BtnListeEkle.TabIndex = 0;
+            this.BtnListeEkle.UseVisualStyleBackColor = false;
+            this.BtnListeEkle.Click += new System.EventHandler(this.BtnListeEkle_Click);
+            // 
+            // etiketId
+            // 
+            this.etiketId.BackColor = System.Drawing.Color.LightPink;
+            this.etiketId.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.etiketId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.etiketId.Location = new System.Drawing.Point(505, 8);
+            this.etiketId.Name = "etiketId";
+            this.etiketId.Size = new System.Drawing.Size(214, 23);
+            this.etiketId.TabIndex = 0;
+            this.etiketId.Text = "***";
+            this.etiketId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtAciklama
             // 
@@ -423,56 +473,6 @@
             this.label2.Text = "Giriş No";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.PaleVioletRed;
-            this.panel1.Controls.Add(this.BtnListeSatirSil);
-            this.panel1.Controls.Add(this.BtnListeEkle);
-            this.panel1.Controls.Add(this.etiketId);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(997, 42);
-            this.panel1.TabIndex = 2;
-            // 
-            // BtnListeSatirSil
-            // 
-            this.BtnListeSatirSil.BackgroundImage = global::IEA_ErpProject.Properties.Resources.minus;
-            this.BtnListeSatirSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnListeSatirSil.FlatAppearance.BorderSize = 0;
-            this.BtnListeSatirSil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnListeSatirSil.Location = new System.Drawing.Point(918, 4);
-            this.BtnListeSatirSil.Name = "BtnListeSatirSil";
-            this.BtnListeSatirSil.Size = new System.Drawing.Size(35, 35);
-            this.BtnListeSatirSil.TabIndex = 1;
-            this.BtnListeSatirSil.UseVisualStyleBackColor = false;
-            this.BtnListeSatirSil.Click += new System.EventHandler(this.BtnListeSatirSil_Click);
-            // 
-            // BtnListeEkle
-            // 
-            this.BtnListeEkle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.add;
-            this.BtnListeEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnListeEkle.FlatAppearance.BorderSize = 0;
-            this.BtnListeEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnListeEkle.Location = new System.Drawing.Point(959, 4);
-            this.BtnListeEkle.Name = "BtnListeEkle";
-            this.BtnListeEkle.Size = new System.Drawing.Size(35, 35);
-            this.BtnListeEkle.TabIndex = 0;
-            this.BtnListeEkle.UseVisualStyleBackColor = false;
-            this.BtnListeEkle.Click += new System.EventHandler(this.BtnListeEkle_Click);
-            // 
-            // etiketId
-            // 
-            this.etiketId.BackColor = System.Drawing.Color.LightPink;
-            this.etiketId.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.etiketId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.etiketId.Location = new System.Drawing.Point(505, 8);
-            this.etiketId.Name = "etiketId";
-            this.etiketId.Size = new System.Drawing.Size(214, 23);
-            this.etiketId.TabIndex = 0;
-            this.etiketId.Text = "***";
-            this.etiketId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Id
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -520,8 +520,8 @@
             // Not
             // 
             this.Not.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle7.NullValue = " ";
-            this.Not.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.NullValue = "**";
+            this.Not.DefaultCellStyle = dataGridViewCellStyle2;
             this.Not.HeaderText = "Not";
             this.Not.Name = "Not";
             this.Not.Width = 49;
@@ -561,10 +561,10 @@
             // 
             // Durum
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.HotPink;
-            dataGridViewCellStyle8.NullValue = false;
-            this.Durum.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.HotPink;
+            dataGridViewCellStyle3.NullValue = false;
+            this.Durum.DefaultCellStyle = dataGridViewCellStyle3;
             this.Durum.HeaderText = "Durum";
             this.Durum.Name = "Durum";
             // 
