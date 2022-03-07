@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label2 = new System.Windows.Forms.Label();
@@ -113,10 +113,11 @@
             this.BtnPersonelAra.Name = "BtnPersonelAra";
             this.BtnPersonelAra.Size = new System.Drawing.Size(262, 72);
             this.BtnPersonelAra.TabIndex = 1;
-            this.BtnPersonelAra.Text = "Doktor Ara";
+            this.BtnPersonelAra.Text = "Personel Ara";
             this.BtnPersonelAra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnPersonelAra.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.BtnPersonelAra.UseVisualStyleBackColor = false;
+            this.BtnPersonelAra.Click += new System.EventHandler(this.BtnPersonelAra_Click);
             // 
             // txtPersonelAra
             // 
@@ -128,8 +129,8 @@
             // 
             // Liste
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LavenderBlush;
-            this.Liste.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LavenderBlush;
+            this.Liste.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Liste.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -140,21 +141,22 @@
             this.Departman,
             this.Tel,
             this.Sehir});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.HotPink;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Liste.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.HotPink;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Liste.DefaultCellStyle = dataGridViewCellStyle5;
             this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Liste.Location = new System.Drawing.Point(0, 48);
             this.Liste.Name = "Liste";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightPink;
-            this.Liste.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightPink;
+            this.Liste.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.Liste.Size = new System.Drawing.Size(717, 398);
             this.Liste.TabIndex = 1;
+            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
             // Sira
             // 

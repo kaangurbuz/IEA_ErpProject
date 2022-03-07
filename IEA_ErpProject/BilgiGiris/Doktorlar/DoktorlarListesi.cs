@@ -18,7 +18,7 @@ namespace IEA_ErpProject.BilgiGiris.Doktorlar
         private List<tblDoktorlar> dktList;
         private int secimId = -1;
         public bool Secim = false;
-        private Formlar f = new Formlar();
+        private readonly Formlar f = new Formlar();
         public DoktorlarListesi()
         {
             InitializeComponent();
@@ -66,6 +66,35 @@ namespace IEA_ErpProject.BilgiGiris.Doktorlar
         {
             if (Liste.CurrentRow != null) secimId = (int?)Liste.CurrentRow.Cells[1].Value ?? -1;
 
+            if (secimId > 0 && Application.OpenForms["DoktorGiris"] == null && Secim)
+            {
+
+                AnaSayfa.Aktarma = secimId;
+                Close();
+
+
+            }
+
+            else if (Application.OpenForms["DoktorGiris"] != null && Secim)
+            {
+                DoktorGiris frm = Application.OpenForms["DoktorGiris"] as DoktorGiris;
+                frm.Ac(secimId);
+                Close();
+            }
+
+            else if (!Secim)
+            {
+                f.DoktorlarGirisAc(secimId);
+                Close();
+            }
+        }
+    }
+}
+
+/* private void Liste_DoubleClick(object sender, EventArgs e)
+        {
+            if (Liste.CurrentRow != null) secimId = (int?)Liste.CurrentRow.Cells[1].Value ?? -1;
+
             if (secimId > 0 && Application.OpenForms["DoktorGiris"] == null)
             {
 
@@ -81,6 +110,4 @@ namespace IEA_ErpProject.BilgiGiris.Doktorlar
                 frm.Ac(secimId);
                 Close();
             }
-        }
-    }
-}
+        }*/

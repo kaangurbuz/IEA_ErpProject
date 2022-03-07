@@ -13,6 +13,7 @@ using IEA_ErpProject.BilgiGiris.Hastaneler;
 using IEA_ErpProject.BilgiGiris.Personeller;
 using IEA_ErpProject.BilgiGiris.Urunler;
 using IEA_ErpProject.Functions;
+using IEA_ErpProject.UrunGiris.Stok;
 using IEA_ErpProject.UrunGiris.Urunler;
 
 namespace IEA_ErpProject
@@ -21,6 +22,7 @@ namespace IEA_ErpProject
     {
         readonly Formlar f = new Formlar();
         public static int Aktarma = -1;
+        //private bool closeTab = false;
         public AnaSayfa()
         {
             InitializeComponent();
@@ -66,9 +68,15 @@ namespace IEA_ErpProject
                     TvMenu.Nodes[0].Nodes.Add("Urunler Listesi");
                     TvMenu.Nodes[0].Nodes.Add("Urun Giris");
                     break;
+                case 3:
+                    TvMenu.Nodes.Add("Stok"); //root
+                    TvMenu.Nodes[0].Nodes.Add("Stok Durum");
+                    //TvMenu.Nodes[0].Nodes.Add("Urun Giris");
+                    break;
             }
 
         }
+        #region MenuButton
         private void BtnBilgiGiris_Click(object sender, EventArgs e)
         {
             lblSolUstMenu.Text = BtnBilgiGiris.Text;
@@ -77,10 +85,16 @@ namespace IEA_ErpProject
 
         private void BtnUrunGiris_Click(object sender, EventArgs e)
         {
-            lblSolUstMenu.Text=BtnUrunGiris.Text;
+            lblSolUstMenu.Text = BtnUrunGiris.Text;
             MenuOlustur(2); // urun menu
         }
+        private void BtnStok_Click(object sender, EventArgs e)
+        {
+            lblSolUstMenu.Text = BtnStok.Text;
+            MenuOlustur(3); // stok menu
+        }
 
+        #endregion
         private void TvMenu_DoubleClick(object sender, EventArgs e)
         {
             string isim = "";
@@ -114,7 +128,6 @@ namespace IEA_ErpProject
                 frm.Show();
             }
             #endregion
-
             #region Firmalar
             else if (isim == "Firmalar Listesi" && Application.OpenForms["FirmalarListesi"] == null)
             {
@@ -128,7 +141,6 @@ namespace IEA_ErpProject
                 frm.Show();
             }
             #endregion
-
             #region Personeller
             else if (isim == "Personel Bilgi Giris" && Application.OpenForms["PersonelGiris"] == null)
             {
@@ -144,7 +156,6 @@ namespace IEA_ErpProject
                 frm.Show();
             }
             #endregion
-
             #region Urun Kayit
             else if (isim == "Urun Kayit" && Application.OpenForms["UrunKayit"] == null)
             {
@@ -169,9 +180,13 @@ namespace IEA_ErpProject
 
             else if (isim == "Urunler Listesi" && Application.OpenForms["UrunlerListesi"] == null)
             {
-                UrunlerListesi frm = new UrunlerListesi();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
+                f.UrunGirisListesiAc();
+            }
+            #endregion
+            #region Stok
+            else if (isim == "Stok Durum" && Application.OpenForms["StokDurum"] == null)
+            {
+                f.StokDurumAc();
             } 
             #endregion
 
@@ -182,12 +197,49 @@ namespace IEA_ErpProject
             
             //Close();
             //Application.Exit();
+            Cikis();
+        }
+
+        private void Cikis()
+        {
             DialogResult dialogResult = MessageBox.Show("Programdan cikis yapmak istediginize emin misiniz ?", "Cikis Islemi",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (dialogResult == DialogResult.Yes)
             {
                 Application.ExitThread();
+            }
+         
+           
+        }
+
+        private void btnSolUstCollapse_Click(object sender, EventArgs e)
+        {
+            
+            //if (closeTab)
+            //{
+            //    scMenu.Width = 30;
+            //    closeTab = true;
+            //}
+            //else
+            //{
+            //    scMenu.Width = 337;
+            //    closeTab = false;
+            //}
+        }
+
+        private void AnaSayfa_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Programdan cikis yapmak istediginize emin misiniz ?", "Cikis Islemi",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.ExitThread();
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
     }
