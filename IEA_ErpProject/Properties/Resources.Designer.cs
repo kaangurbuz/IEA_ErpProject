@@ -163,6 +163,16 @@ namespace IEA_ErpProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cancel_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cancel-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_delete_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-delete-30", resourceCulture);
@@ -196,6 +206,26 @@ namespace IEA_ErpProject.Properties {
         internal static System.Drawing.Bitmap icons8_delete_303 {
             get {
                 object obj = ResourceManager.GetObject("icons8-delete-303", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_login {
+            get {
+                object obj = ResourceManager.GetObject("icons8-login", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_login1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-login1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,6 +366,16 @@ namespace IEA_ErpProject.Properties {
         internal static System.Drawing.Bitmap searchicon2 {
             get {
                 object obj = ResourceManager.GetObject("searchicon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Users_Administrator_icon {
+            get {
+                object obj = ResourceManager.GetObject("Users-Administrator-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

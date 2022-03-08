@@ -25,7 +25,6 @@
         <EntityTypeShape EntityType="ErpProject102SModel.tblUrunKayitAlt" Width="1.5" PointX="8.375" PointY="0.75" />
         <EntityTypeShape EntityType="ErpProject102SModel.tblUrunKayitUst" Width="1.5" PointX="3.375" PointY="0.75" />
         <AssociationConnector Association="ErpProject102SModel.FK_tblUrunKayitUst_tblFirmalar" />
-        <EntityTypeShape EntityType="ErpProject102SModel.tblStokDurum" Width="1.5" PointX="10.375" PointY="0.75" />
         <EntityTypeShape EntityType="ErpProject102SModel.tblUrunGirisAlt" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="ErpProject102SModel.tblFirmaDetaylar" Width="1.5" PointX="8.25" PointY="13.25" />
         <AssociationConnector Association="ErpProject102SModel.FK_tblFirmaDetaylar_tblDepartmanlar" />
@@ -34,6 +33,10 @@
         <EntityTypeShape EntityType="ErpProject102SModel.tblPersoneller" Width="1.5" PointX="11.25" PointY="10.375" />
         <AssociationConnector Association="ErpProject102SModel.FK_tblPersoneller_Sehirler" />
         <AssociationConnector Association="ErpProject102SModel.FK_tblPersoneller_tblDepartmanlar" />
+        <EntityTypeShape EntityType="ErpProject102SModel.tblKonsinyeGonderimler" Width="1.5" PointX="15" PointY="1.125" />
+        <EntityTypeShape EntityType="ErpProject102SModel.tblStokDurum" Width="1.5" PointX="12.75" PointY="1" />
+        <EntityTypeShape EntityType="ErpProject102SModel.tblUsers" Width="1.5" PointX="0.75" PointY="3.75" />
+        <AssociationConnector Association="ErpProject102SModel.FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

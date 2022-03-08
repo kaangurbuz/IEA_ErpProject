@@ -30,7 +30,7 @@
         {
             this.tabPGenel = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.BtnKapat = new System.Windows.Forms.Button();
+            this.lblUserName = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlSol = new System.Windows.Forms.Panel();
@@ -40,11 +40,15 @@
             this.BtnUrunGiris = new System.Windows.Forms.Button();
             this.BtnBilgiGiris = new System.Windows.Forms.Button();
             this.pnlSolUst = new System.Windows.Forms.Panel();
-            this.btnSolUstCollapse = new System.Windows.Forms.Button();
             this.lblSolUstMenu = new System.Windows.Forms.Label();
-            this.btnSolUstAra = new System.Windows.Forms.Button();
             this.txtSolUstAra = new System.Windows.Forms.TextBox();
             this.splitter2 = new System.Windows.Forms.Splitter();
+            this.lblUserNickName = new System.Windows.Forms.Label();
+            this.btnSolUstCollapse = new System.Windows.Forms.Button();
+            this.btnSolUstAra = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BtnKapat = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPGenel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.pnlSol.SuspendLayout();
@@ -53,6 +57,8 @@
             this.scMenu.Panel2.SuspendLayout();
             this.scMenu.SuspendLayout();
             this.pnlSolUst.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPGenel
@@ -70,6 +76,9 @@
             // 
             this.tabPage1.BackColor = System.Drawing.Color.LavenderBlush;
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage1.Controls.Add(this.pictureBox1);
+            this.tabPage1.Controls.Add(this.lblUserNickName);
+            this.tabPage1.Controls.Add(this.lblUserName);
             this.tabPage1.Controls.Add(this.BtnKapat);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -78,17 +87,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Genel";
             // 
-            // BtnKapat
+            // lblUserName
             // 
-            this.BtnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit1;
-            this.BtnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnKapat.Location = new System.Drawing.Point(1307, 19);
-            this.BtnKapat.Name = "BtnKapat";
-            this.BtnKapat.Size = new System.Drawing.Size(64, 64);
-            this.BtnKapat.TabIndex = 12;
-            this.BtnKapat.UseVisualStyleBackColor = true;
-            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
+            this.lblUserName.BackColor = System.Drawing.Color.LightPink;
+            this.lblUserName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUserName.Location = new System.Drawing.Point(130, 6);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(284, 29);
+            this.lblUserName.TabIndex = 13;
+            this.lblUserName.Text = "*****";
+            this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabPage2
             // 
@@ -140,9 +149,7 @@
             // scMenu.Panel2
             // 
             this.scMenu.Panel2.BackColor = System.Drawing.Color.LightPink;
-            this.scMenu.Panel2.Controls.Add(this.BtnStok);
-            this.scMenu.Panel2.Controls.Add(this.BtnUrunGiris);
-            this.scMenu.Panel2.Controls.Add(this.BtnBilgiGiris);
+            this.scMenu.Panel2.Controls.Add(this.flowLayoutPanel1);
             this.scMenu.Size = new System.Drawing.Size(337, 462);
             this.scMenu.SplitterDistance = 208;
             this.scMenu.TabIndex = 4;
@@ -163,7 +170,7 @@
             // 
             this.BtnStok.BackColor = System.Drawing.Color.LavenderBlush;
             this.BtnStok.ForeColor = System.Drawing.Color.DimGray;
-            this.BtnStok.Location = new System.Drawing.Point(174, 17);
+            this.BtnStok.Location = new System.Drawing.Point(164, 3);
             this.BtnStok.Name = "BtnStok";
             this.BtnStok.Size = new System.Drawing.Size(74, 56);
             this.BtnStok.TabIndex = 1;
@@ -175,7 +182,7 @@
             // 
             this.BtnUrunGiris.BackColor = System.Drawing.Color.LavenderBlush;
             this.BtnUrunGiris.ForeColor = System.Drawing.Color.DimGray;
-            this.BtnUrunGiris.Location = new System.Drawing.Point(94, 17);
+            this.BtnUrunGiris.Location = new System.Drawing.Point(84, 3);
             this.BtnUrunGiris.Name = "BtnUrunGiris";
             this.BtnUrunGiris.Size = new System.Drawing.Size(74, 56);
             this.BtnUrunGiris.TabIndex = 1;
@@ -187,7 +194,7 @@
             // 
             this.BtnBilgiGiris.BackColor = System.Drawing.Color.LavenderBlush;
             this.BtnBilgiGiris.ForeColor = System.Drawing.Color.DimGray;
-            this.BtnBilgiGiris.Location = new System.Drawing.Point(13, 17);
+            this.BtnBilgiGiris.Location = new System.Drawing.Point(3, 3);
             this.BtnBilgiGiris.Name = "BtnBilgiGiris";
             this.BtnBilgiGiris.Size = new System.Drawing.Size(75, 56);
             this.BtnBilgiGiris.TabIndex = 0;
@@ -208,18 +215,6 @@
             this.pnlSolUst.Size = new System.Drawing.Size(337, 77);
             this.pnlSolUst.TabIndex = 4;
             // 
-            // btnSolUstCollapse
-            // 
-            this.btnSolUstCollapse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSolUstCollapse.BackgroundImage = global::IEA_ErpProject.Properties.Resources.rightleft;
-            this.btnSolUstCollapse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSolUstCollapse.Location = new System.Drawing.Point(304, 43);
-            this.btnSolUstCollapse.Name = "btnSolUstCollapse";
-            this.btnSolUstCollapse.Size = new System.Drawing.Size(25, 25);
-            this.btnSolUstCollapse.TabIndex = 3;
-            this.btnSolUstCollapse.UseVisualStyleBackColor = true;
-            this.btnSolUstCollapse.Click += new System.EventHandler(this.btnSolUstCollapse_Click);
-            // 
             // lblSolUstMenu
             // 
             this.lblSolUstMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -234,18 +229,6 @@
             this.lblSolUstMenu.TabIndex = 2;
             this.lblSolUstMenu.Text = "****";
             this.lblSolUstMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnSolUstAra
-            // 
-            this.btnSolUstAra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSolUstAra.AutoSize = true;
-            this.btnSolUstAra.BackgroundImage = global::IEA_ErpProject.Properties.Resources.searchicon;
-            this.btnSolUstAra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSolUstAra.Location = new System.Drawing.Point(304, 8);
-            this.btnSolUstAra.Name = "btnSolUstAra";
-            this.btnSolUstAra.Size = new System.Drawing.Size(25, 25);
-            this.btnSolUstAra.TabIndex = 1;
-            this.btnSolUstAra.UseVisualStyleBackColor = true;
             // 
             // txtSolUstAra
             // 
@@ -267,6 +250,76 @@
             this.splitter2.Size = new System.Drawing.Size(3, 539);
             this.splitter2.TabIndex = 3;
             this.splitter2.TabStop = false;
+            // 
+            // lblUserNickName
+            // 
+            this.lblUserNickName.BackColor = System.Drawing.Color.LightPink;
+            this.lblUserNickName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblUserNickName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUserNickName.Location = new System.Drawing.Point(130, 54);
+            this.lblUserNickName.Name = "lblUserNickName";
+            this.lblUserNickName.Size = new System.Drawing.Size(284, 29);
+            this.lblUserNickName.TabIndex = 13;
+            this.lblUserNickName.Text = "*****";
+            this.lblUserNickName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnSolUstCollapse
+            // 
+            this.btnSolUstCollapse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSolUstCollapse.BackgroundImage = global::IEA_ErpProject.Properties.Resources.rightleft;
+            this.btnSolUstCollapse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSolUstCollapse.Location = new System.Drawing.Point(304, 43);
+            this.btnSolUstCollapse.Name = "btnSolUstCollapse";
+            this.btnSolUstCollapse.Size = new System.Drawing.Size(25, 25);
+            this.btnSolUstCollapse.TabIndex = 3;
+            this.btnSolUstCollapse.UseVisualStyleBackColor = true;
+            this.btnSolUstCollapse.Click += new System.EventHandler(this.btnSolUstCollapse_Click);
+            // 
+            // btnSolUstAra
+            // 
+            this.btnSolUstAra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSolUstAra.AutoSize = true;
+            this.btnSolUstAra.BackgroundImage = global::IEA_ErpProject.Properties.Resources.searchicon;
+            this.btnSolUstAra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSolUstAra.Location = new System.Drawing.Point(304, 8);
+            this.btnSolUstAra.Name = "btnSolUstAra";
+            this.btnSolUstAra.Size = new System.Drawing.Size(25, 25);
+            this.btnSolUstAra.TabIndex = 1;
+            this.btnSolUstAra.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::IEA_ErpProject.Properties.Resources.Users_Administrator_icon;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(9, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 90);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
+            // BtnKapat
+            // 
+            this.BtnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit1;
+            this.BtnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnKapat.Location = new System.Drawing.Point(1307, 19);
+            this.BtnKapat.Name = "BtnKapat";
+            this.BtnKapat.Size = new System.Drawing.Size(64, 64);
+            this.BtnKapat.TabIndex = 12;
+            this.BtnKapat.UseVisualStyleBackColor = true;
+            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Controls.Add(this.BtnBilgiGiris);
+            this.flowLayoutPanel1.Controls.Add(this.BtnUrunGiris);
+            this.flowLayoutPanel1.Controls.Add(this.BtnStok);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(333, 246);
+            this.flowLayoutPanel1.TabIndex = 2;
             // 
             // AnaSayfa
             // 
@@ -294,6 +347,8 @@
             this.scMenu.ResumeLayout(false);
             this.pnlSolUst.ResumeLayout(false);
             this.pnlSolUst.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -317,6 +372,10 @@
         private System.Windows.Forms.Button BtnUrunGiris;
         private System.Windows.Forms.Button BtnKapat;
         private System.Windows.Forms.Button BtnStok;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Label lblUserNickName;
+        public System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 

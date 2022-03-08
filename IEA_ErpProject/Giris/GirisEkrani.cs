@@ -30,14 +30,16 @@ namespace IEA_ErpProject.Giris
             {
                 //var srg = code.TblUsers.Where(s => s.UserName == txtKullaniciAdi.Text && s.Password == txtSifre.Text)
                 //    .Select(x => x.Id).ToList();
-                int? srg =
+                var srg =
                     (from s in code.TblUsers
                         where (s.UserName == txtKullaniciAdi.Text && s.Password == txtSifre.Text)
-                        select s.Id).FirstOrDefault();
-                if (srg > 0)
+                        select s).FirstOrDefault();
+                if (srg != null)
                 {
                     AnaSayfa ana = new AnaSayfa();
                     ana.Show();
+                    ana.lblUserName.Text = srg.Name;
+                    ana.lblUserNickName.Text = srg.UserName;
                     Hide();
                 }
                 else
@@ -45,6 +47,11 @@ namespace IEA_ErpProject.Giris
                     MessageBox.Show("Kullanici adi veya parola yanlış girildi! Lutfen kontrol ediniz!");
                 }
             }
+        }
+
+        private void BtnKapat_Click(object sender, EventArgs e)
+        {
+            Application.ExitThread();
         }
     }
 }

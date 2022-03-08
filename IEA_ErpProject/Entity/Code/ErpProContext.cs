@@ -14,6 +14,8 @@ namespace IEA_ErpProject.Entity.Code
             Database.SetInitializer(new MyInitializer());
         }
         public DbSet<tblUser> TblUsers { get; set; }
-        
+        public DbSet<tblKonsinyeGonderim> TblKonsinyeGonderimler { get; set; }
+
+       
     }
 }

@@ -22,7 +22,7 @@ namespace IEA_ErpProject
     {
         readonly Formlar f = new Formlar();
         public static int Aktarma = -1;
-        //private bool closeTab = false;
+        private bool collapseTab = true;
         public AnaSayfa()
         {
             InitializeComponent();
@@ -200,7 +200,7 @@ namespace IEA_ErpProject
             Cikis();
         }
 
-        private void Cikis()
+        private Boolean Cikis()
         {
             DialogResult dialogResult = MessageBox.Show("Programdan cikis yapmak istediginize emin misiniz ?", "Cikis Islemi",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -208,6 +208,11 @@ namespace IEA_ErpProject
             if (dialogResult == DialogResult.Yes)
             {
                 Application.ExitThread();
+                return true;
+            }
+            else
+            {
+                return false;
             }
          
            
@@ -215,32 +220,40 @@ namespace IEA_ErpProject
 
         private void btnSolUstCollapse_Click(object sender, EventArgs e)
         {
-            
-            //if (closeTab)
-            //{
-            //    scMenu.Width = 30;
-            //    closeTab = true;
-            //}
-            //else
-            //{
-            //    scMenu.Width = 337;
-            //    closeTab = false;
-            //}
+
+            if (collapseTab)
+            {
+                pnlSol.Width = 85;
+                collapseTab = false;
+                TvMenu.Visible = false;
+                lblSolUstMenu.Visible = false;
+                txtSolUstAra.Visible = false;
+                btnSolUstAra.Visible = false;
+            }
+            else
+            {
+                pnlSol.Width = 337;
+                collapseTab = true;
+                TvMenu.Visible = true;
+                lblSolUstMenu.Visible = true;
+                txtSolUstAra.Visible = true;
+                btnSolUstAra.Visible = true;
+            }
         }
 
         private void AnaSayfa_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Programdan cikis yapmak istediginize emin misiniz ?", "Cikis Islemi",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (dialogResult == DialogResult.Yes)
+            if (Cikis())
             {
-                Application.ExitThread();
+                Cikis();
             }
             else
             {
                 e.Cancel = true;
             }
         }
+
     }
 }
+
+//image list

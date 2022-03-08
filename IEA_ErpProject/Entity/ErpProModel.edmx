@@ -111,6 +111,24 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TipAdi" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="tblKonsinyeGonderimler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CariTur" Type="nvarchar" MaxLength="15" />
+          <Property Name="CariAdi" Type="nvarchar" MaxLength="200" />
+          <Property Name="CariId" Type="int" Nullable="false" />
+          <Property Name="GonderimTarih" Type="datetime" Nullable="false" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="250" />
+          <Property Name="UrunId" Type="int" Nullable="false" />
+          <Property Name="Adet" Type="int" Nullable="false" />
+          <Property Name="isDeleted" Type="bit" Nullable="false" />
+          <Property Name="CreatedUser" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedUser" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="tblPersoneller">
           <Key>
             <PropertyRef Name="Id" />
@@ -219,14 +237,29 @@
           <Property Name="Resim" Type="image" />
           <Property Name="KullanimSuresi" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'ErpProject102S.dbo.vwStokDurum' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="vwStokDurum">
-          <Property Name="Barkod" Type="nvarchar" MaxLength="100" />
-          <Property Name="UrunKodu" Type="nvarchar" MaxLength="100" />
-          <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
-          <Property Name="GirisAdet" Type="int" />
-        </EntityType>-->
+        <EntityType Name="tblUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId">
+          <End Role="tblStokDurum" Type="Self.tblStokDurum" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblKonsinyeGonderimler" Type="Self.tblKonsinyeGonderimler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStokDurum">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblKonsinyeGonderimler">
+              <PropertyRef Name="UrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tblDoktorlar_Sehirler">
           <End Role="Sehirler" Type="Self.Sehirler" Multiplicity="0..1" />
           <End Role="tblDoktorlar" Type="Self.tblDoktorlar" Multiplicity="*" />
@@ -436,12 +469,18 @@ warning 6013: The table/view 'ErpProject102S.dbo.vwStokDurum' does not have a pr
           <EntitySet Name="tblHastaneDetaylar" EntityType="Self.tblHastaneDetaylar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHastaneler" EntityType="Self.tblHastaneler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHastaneTipleri" EntityType="Self.tblHastaneTipleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblKonsinyeGonderimler" EntityType="Self.tblKonsinyeGonderimler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPersoneller" EntityType="Self.tblPersoneller" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblStokDurum" EntityType="Self.tblStokDurum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUrunGirisAlt" EntityType="Self.tblUrunGirisAlt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUrunGirisUst" EntityType="Self.tblUrunGirisUst" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUrunKayitAlt" EntityType="Self.tblUrunKayitAlt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUrunKayitUst" EntityType="Self.tblUrunKayitUst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId" Association="Self.FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId">
+            <End Role="tblStokDurum" EntitySet="tblStokDurum" />
+            <End Role="tblKonsinyeGonderimler" EntitySet="tblKonsinyeGonderimler" />
+          </AssociationSet>
           <AssociationSet Name="FK_tblDoktorlar_Sehirler" Association="Self.FK_tblDoktorlar_Sehirler">
             <End Role="Sehirler" EntitySet="Sehirler" />
             <End Role="tblDoktorlar" EntitySet="tblDoktorlar" />
@@ -593,7 +632,6 @@ warning 6013: The table/view 'ErpProject102S.dbo.vwStokDurum' does not have a pr
             <End Role="tblFirmalar" EntitySet="tblFirmalar" />
             <End Role="tblUrunKayitUst" EntitySet="tblUrunKayitUst" />
           </AssociationSet>
-          <EntitySet Name="tblStokDurum" EntityType="ErpProject102SModel.tblStokDurum" />
           <EntitySet Name="tblUrunGirisAlt" EntityType="ErpProject102SModel.tblUrunGirisAlt" />
           <EntitySet Name="tblUrunGirisUst" EntityType="ErpProject102SModel.tblUrunGirisUst" />
           <EntitySet Name="tblPersoneller" EntityType="ErpProject102SModel.tblPersoneller" />
@@ -604,6 +642,13 @@ warning 6013: The table/view 'ErpProject102S.dbo.vwStokDurum' does not have a pr
           <AssociationSet Name="FK_tblPersoneller_tblDepartmanlar" Association="ErpProject102SModel.FK_tblPersoneller_tblDepartmanlar">
             <End Role="tblDepartmanlar" EntitySet="tblDepartmanlar" />
             <End Role="tblPersoneller" EntitySet="tblPersoneller" />
+          </AssociationSet>
+          <EntitySet Name="tblKonsinyeGonderimler" EntityType="ErpProject102SModel.tblKonsinyeGonderimler" />
+          <EntitySet Name="tblStokDurum" EntityType="ErpProject102SModel.tblStokDurum" />
+          <EntitySet Name="tblUsers" EntityType="ErpProject102SModel.tblUsers" />
+          <AssociationSet Name="FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId" Association="ErpProject102SModel.FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId">
+            <End Role="tblStokDurum" EntitySet="tblStokDurum" />
+            <End Role="tblKonsinyeGonderimler" EntitySet="tblKonsinyeGonderimler" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -930,25 +975,6 @@ warning 6013: The table/view 'ErpProject102S.dbo.vwStokDurum' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="tblStokDurum">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Barkod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="UrunKodu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StokAdet" Type="Int32" />
-          <Property Name="RafAdet" Type="Int32" />
-          <Property Name="KonsinyeAdet" Type="Int32" />
-          <Property Name="SubeAdet" Type="Int32" />
-          <Property Name="UrunHareketAdet" Type="Int32" />
-          <Property Name="SutKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BransNo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="UTS" Type="Boolean" />
-          <Property Name="UretimTarih" Type="DateTime" Precision="0" />
-          <Property Name="SonKullanmaTarih" Type="DateTime" Precision="0" />
-        </EntityType>
         <EntityType Name="tblUrunGirisAlt">
           <Key>
             <PropertyRef Name="Id" />
@@ -1024,6 +1050,68 @@ warning 6013: The table/view 'ErpProject102S.dbo.vwStokDurum' does not have a pr
             </Principal>
             <Dependent Role="tblPersoneller">
               <PropertyRef Name="DepartmanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblKonsinyeGonderimler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CariTur" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CariAdi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CariId" Type="Int32" Nullable="false" />
+          <Property Name="GonderimTarih" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Aciklama" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="UrunId" Type="Int32" Nullable="false" />
+          <Property Name="Adet" Type="Int32" Nullable="false" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedUser" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedUser" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tblStokDurum" Relationship="ErpProject102SModel.FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId" FromRole="tblKonsinyeGonderimler" ToRole="tblStokDurum" />
+        </EntityType>
+        <EntityType Name="tblStokDurum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Barkod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UrunKodu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokAdet" Type="Int32" />
+          <Property Name="RafAdet" Type="Int32" />
+          <Property Name="KonsinyeAdet" Type="Int32" />
+          <Property Name="SubeAdet" Type="Int32" />
+          <Property Name="UrunHareketAdet" Type="Int32" />
+          <Property Name="SutKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BransNo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="UTS" Type="Boolean" />
+          <Property Name="UretimTarih" Type="DateTime" Precision="0" />
+          <Property Name="SonKullanmaTarih" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tblKonsinyeGonderimler" Relationship="ErpProject102SModel.FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId" FromRole="tblStokDurum" ToRole="tblKonsinyeGonderimler" />
+        </EntityType>
+        <EntityType Name="tblUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId">
+          <End Type="ErpProject102SModel.tblStokDurum" Role="tblStokDurum" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ErpProject102SModel.tblKonsinyeGonderimler" Role="tblKonsinyeGonderimler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStokDurum">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblKonsinyeGonderimler">
+              <PropertyRef Name="UrunId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1211,26 +1299,6 @@ warning 6013: The table/view 'ErpProject102S.dbo.vwStokDurum' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblStokDurum">
-            <EntityTypeMapping TypeName="ErpProject102SModel.tblStokDurum">
-              <MappingFragment StoreEntitySet="tblStokDurum">
-                <ScalarProperty Name="SonKullanmaTarih" ColumnName="SonKullanmaTarih" />
-                <ScalarProperty Name="UretimTarih" ColumnName="UretimTarih" />
-                <ScalarProperty Name="UTS" ColumnName="UTS" />
-                <ScalarProperty Name="BransNo" ColumnName="BransNo" />
-                <ScalarProperty Name="SutKodu" ColumnName="SutKodu" />
-                <ScalarProperty Name="UrunHareketAdet" ColumnName="UrunHareketAdet" />
-                <ScalarProperty Name="SubeAdet" ColumnName="SubeAdet" />
-                <ScalarProperty Name="KonsinyeAdet" ColumnName="KonsinyeAdet" />
-                <ScalarProperty Name="RafAdet" ColumnName="RafAdet" />
-                <ScalarProperty Name="StokAdet" ColumnName="StokAdet" />
-                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
-                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
-                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tblUrunGirisAlt">
             <EntityTypeMapping TypeName="ErpProject102SModel.tblUrunGirisAlt">
               <MappingFragment StoreEntitySet="tblUrunGirisAlt">
@@ -1282,6 +1350,55 @@ warning 6013: The table/view 'ErpProject102S.dbo.vwStokDurum' does not have a pr
                 <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
                 <ScalarProperty Name="Adi" ColumnName="Adi" />
                 <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblKonsinyeGonderimler">
+            <EntityTypeMapping TypeName="ErpProject102SModel.tblKonsinyeGonderimler">
+              <MappingFragment StoreEntitySet="tblKonsinyeGonderimler">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedUser" ColumnName="UpdatedUser" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="GonderimTarih" ColumnName="GonderimTarih" />
+                <ScalarProperty Name="CariId" ColumnName="CariId" />
+                <ScalarProperty Name="CariAdi" ColumnName="CariAdi" />
+                <ScalarProperty Name="CariTur" ColumnName="CariTur" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStokDurum">
+            <EntityTypeMapping TypeName="ErpProject102SModel.tblStokDurum">
+              <MappingFragment StoreEntitySet="tblStokDurum">
+                <ScalarProperty Name="SonKullanmaTarih" ColumnName="SonKullanmaTarih" />
+                <ScalarProperty Name="UretimTarih" ColumnName="UretimTarih" />
+                <ScalarProperty Name="UTS" ColumnName="UTS" />
+                <ScalarProperty Name="BransNo" ColumnName="BransNo" />
+                <ScalarProperty Name="SutKodu" ColumnName="SutKodu" />
+                <ScalarProperty Name="UrunHareketAdet" ColumnName="UrunHareketAdet" />
+                <ScalarProperty Name="SubeAdet" ColumnName="SubeAdet" />
+                <ScalarProperty Name="KonsinyeAdet" ColumnName="KonsinyeAdet" />
+                <ScalarProperty Name="RafAdet" ColumnName="RafAdet" />
+                <ScalarProperty Name="StokAdet" ColumnName="StokAdet" />
+                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="ErpProject102SModel.tblUsers">
+              <MappingFragment StoreEntitySet="tblUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -33,6 +33,7 @@
             this.txtKullaniciAdi = new System.Windows.Forms.TextBox();
             this.txtSifre = new System.Windows.Forms.TextBox();
             this.BtnGiris = new System.Windows.Forms.Button();
+            this.BtnKapat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -63,6 +64,7 @@
             this.txtKullaniciAdi.Name = "txtKullaniciAdi";
             this.txtKullaniciAdi.Size = new System.Drawing.Size(152, 20);
             this.txtKullaniciAdi.TabIndex = 1;
+            this.txtKullaniciAdi.Text = "kaan";
             // 
             // txtSifre
             // 
@@ -70,25 +72,41 @@
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.PasswordChar = '*';
             this.txtSifre.Size = new System.Drawing.Size(152, 20);
-            this.txtSifre.TabIndex = 1;
+            this.txtSifre.TabIndex = 2;
+            this.txtSifre.Text = "12345";
             // 
             // BtnGiris
             // 
-            this.BtnGiris.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit2;
+            this.BtnGiris.BackgroundImage = global::IEA_ErpProject.Properties.Resources.icons8_login1;
             this.BtnGiris.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnGiris.Location = new System.Drawing.Point(271, 106);
+            this.BtnGiris.Location = new System.Drawing.Point(280, 115);
             this.BtnGiris.Name = "BtnGiris";
-            this.BtnGiris.Size = new System.Drawing.Size(52, 43);
-            this.BtnGiris.TabIndex = 2;
+            this.BtnGiris.Size = new System.Drawing.Size(43, 43);
+            this.BtnGiris.TabIndex = 3;
             this.BtnGiris.UseVisualStyleBackColor = true;
             this.BtnGiris.Click += new System.EventHandler(this.BtnGiris_Click);
             // 
+            // BtnKapat
+            // 
+            this.BtnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.icons8_cancel_30;
+            this.BtnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnKapat.Location = new System.Drawing.Point(30, 115);
+            this.BtnKapat.Name = "BtnKapat";
+            this.BtnKapat.Size = new System.Drawing.Size(43, 43);
+            this.BtnKapat.TabIndex = 4;
+            this.BtnKapat.UseVisualStyleBackColor = true;
+            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
+            // 
             // GirisEkrani
             // 
+            this.AcceptButton = this.BtnGiris;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.CancelButton = this.BtnKapat;
             this.ClientSize = new System.Drawing.Size(351, 182);
+            this.Controls.Add(this.BtnKapat);
             this.Controls.Add(this.BtnGiris);
             this.Controls.Add(this.txtSifre);
             this.Controls.Add(this.txtKullaniciAdi);
@@ -109,5 +127,6 @@
         private System.Windows.Forms.TextBox txtKullaniciAdi;
         private System.Windows.Forms.TextBox txtSifre;
         private System.Windows.Forms.Button BtnGiris;
+        private System.Windows.Forms.Button BtnKapat;
     }
 }
