@@ -13,6 +13,8 @@ using IEA_ErpProject.BilgiGiris.Hastaneler;
 using IEA_ErpProject.BilgiGiris.Personeller;
 using IEA_ErpProject.BilgiGiris.Urunler;
 using IEA_ErpProject.Functions;
+using IEA_ErpProject.KonsinyeIslemleri.Cikis;
+using IEA_ErpProject.KonsinyeIslemleri.Giris;
 using IEA_ErpProject.UrunGiris.Stok;
 using IEA_ErpProject.UrunGiris.Urunler;
 
@@ -23,9 +25,11 @@ namespace IEA_ErpProject
         readonly Formlar f = new Formlar();
         public static int Aktarma = -1;
         private bool collapseTab = true;
+        private bool listTab = false;
         public AnaSayfa()
         {
             InitializeComponent();
+
         }
 
         private void AnaSayfa_Load(object sender, EventArgs e)
@@ -71,7 +75,14 @@ namespace IEA_ErpProject
                 case 3:
                     TvMenu.Nodes.Add("Stok"); //root
                     TvMenu.Nodes[0].Nodes.Add("Stok Durum");
-                    //TvMenu.Nodes[0].Nodes.Add("Urun Giris");
+                    break;
+                case 4:
+                    TvMenu.Nodes.Add("Gonderim"); //root
+                    TvMenu.Nodes[0].Nodes.Add("Konsinye Gonderim");
+                    TvMenu.Nodes[0].Nodes.Add("Konsinye Gonderim Listesi");
+                    TvMenu.Nodes.Add("Cikis"); //root
+                    TvMenu.Nodes[1].Nodes.Add("Konsinye Cikis");
+                    TvMenu.Nodes[1].Nodes.Add("Konsinye Cikis Listesi");
                     break;
             }
 
@@ -92,6 +103,12 @@ namespace IEA_ErpProject
         {
             lblSolUstMenu.Text = BtnStok.Text;
             MenuOlustur(3); // stok menu
+        }
+
+        private void BtnKonsinye_Click(object sender, EventArgs e)
+        {
+            lblSolUstMenu.Text = BtnKonsinye.Text;
+            MenuOlustur(4);
         }
 
         #endregion
@@ -187,7 +204,33 @@ namespace IEA_ErpProject
             else if (isim == "Stok Durum" && Application.OpenForms["StokDurum"] == null)
             {
                 f.StokDurumAc();
-            } 
+            }
+            #endregion
+            #region Konsinye Gonderim
+            else if (isim == "Konsinye Gonderim" && Application.OpenForms["KonsinyeGonderim"] == null)
+            {
+                KonsinyeGonderim frm = new KonsinyeGonderim();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+
+            else if (isim == "Konsinye Gonderim Listesi" && Application.OpenForms["KonsinyeGonderimListesi"] == null)
+            {
+                f.KonsinyeGonderimListesiAc();
+            }
+            #endregion
+            #region Konsinye Cikis
+            else if (isim == "Konsinye Cikis" && Application.OpenForms["KonsinyeCikis"] == null)
+            {
+                KonsinyeCikis frm = new KonsinyeCikis();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+
+            else if (isim == "Konsinye Cikis Listesi" && Application.OpenForms["KonsinyeCikisListesi"] == null)
+            {
+                f.KonsinyeCikisListesiAc();
+            }
             #endregion
 
         }
@@ -200,7 +243,7 @@ namespace IEA_ErpProject
             Cikis();
         }
 
-        private Boolean Cikis()
+        private bool Cikis()
         {
             DialogResult dialogResult = MessageBox.Show("Programdan cikis yapmak istediginize emin misiniz ?", "Cikis Islemi",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -253,6 +296,96 @@ namespace IEA_ErpProject
             }
         }
 
+        private void BtnButonListele_Click(object sender, EventArgs e)
+        {
+            if (!listTab)
+            {
+                flpButtons.Visible = true;
+                listTab=true;
+            }
+
+            else
+            {
+                flpButtons.Visible = false;
+                listTab = false;
+            }
+
+        }
+
+        private void flowLayoutPanel1_SizeChanged(object sender, EventArgs e)
+        {
+           
+            foreach (Control k in flowLayoutPanel1.Controls)
+            {
+                if (k is Button)
+                {
+                    if (k.Location.X > 200)
+                    {
+                        flpButtons.Controls.Add(k);
+                    }
+                }
+
+            }
+
+            foreach (Control k in flpButtons.Controls)
+            {
+                if (k is Button)
+                {
+                    flowLayoutPanel1.Controls.Add(k);
+
+                    if (k.Location.X > 200)
+                    {
+                        flpButtons.Controls.Add(k);
+                    }
+
+                }
+
+            }
+
+            if (flpButtons.Controls.Count == 0)
+            {
+                BtnButonListele.Visible = false;
+                flpButtons.Visible = false;
+                listTab=false;
+            }
+            else
+            {
+                BtnButonListele.Visible = true;
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("BUTON 1 E BASILDI!");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("BUTON 2 E BASILDI!");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("BUTON 3 E BASILDI!");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("BUTON 4 E BASILDI!");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("BUTON 5 E BASILDI!");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("BUTON 6 A BASILDI!");
+        }
+
+        
     }
 }
 

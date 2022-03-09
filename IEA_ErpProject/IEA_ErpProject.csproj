@@ -205,9 +205,6 @@
     <Compile Include="Entity\tblHastaneTipleri.cs">
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\tblKonsinyeGonderimler.cs">
-      <DependentUpon>ErpProModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entity\tblPersoneller.cs">
       <DependentUpon>ErpProModel.tt</DependentUpon>
     </Compile>
@@ -261,6 +258,12 @@
     </Compile>
     <Compile Include="KonsinyeIslemleri\Gonderim\KonsinyeGonderimListesi.Designer.cs">
       <DependentUpon>KonsinyeGonderimListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KonsinyeIslemleri\LotBul.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KonsinyeIslemleri\LotBul.Designer.cs">
+      <DependentUpon>LotBul.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202203071039386_Init.cs" />
     <Compile Include="Migrations\202203071039386_Init.designer.cs">
@@ -348,8 +351,17 @@
     <EmbeddedResource Include="Giris\GirisEkrani.resx">
       <DependentUpon>GirisEkrani.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KonsinyeIslemleri\Cikis\KonsinyeCikisListesi.resx">
+      <DependentUpon>KonsinyeCikisListesi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KonsinyeIslemleri\Gonderim\KonsinyeGonderim.resx">
       <DependentUpon>KonsinyeGonderim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KonsinyeIslemleri\Gonderim\KonsinyeGonderimListesi.resx">
+      <DependentUpon>KonsinyeGonderimListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KonsinyeIslemleri\LotBul.resx">
+      <DependentUpon>LotBul.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203071039386_Init.resx">
       <DependentUpon>202203071039386_Init.cs</DependentUpon>
@@ -414,6 +426,7 @@
       <LastGenOutput>ErpProModel.cs</LastGenOutput>
     </Content>
     <Content Include="ReadMe.txt" />
+    <None Include="Resources\icons8-play-50.png" />
     <None Include="Resources\icons8-cancel-30.png" />
     <None Include="Resources\Users-Administrator-icon.png" />
     <None Include="Resources\icons8-login.png" />

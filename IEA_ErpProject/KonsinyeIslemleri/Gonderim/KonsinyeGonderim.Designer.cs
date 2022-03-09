@@ -1,6 +1,6 @@
 ﻿namespace IEA_ErpProject.KonsinyeIslemleri.Giris
 {
-    partial class KonsinyeGiris
+    partial class KonsinyeGonderim
     {
         /// <summary>
         /// Required designer variable.
@@ -28,37 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.BtnPrint = new System.Windows.Forms.Button();
-            this.BtnKapat = new System.Windows.Forms.Button();
-            this.BtnTemizle = new System.Windows.Forms.Button();
-            this.BtnSil = new System.Windows.Forms.Button();
-            this.BtnKaydet = new System.Windows.Forms.Button();
-            this.BtnListeSatirSil = new System.Windows.Forms.Button();
-            this.BtnListeEkle = new System.Windows.Forms.Button();
-            this.BtnGuncelle = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtKonGonderimAciklama = new System.Windows.Forms.TextBox();
             this.etiketId = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnListeSatirSil = new System.Windows.Forms.Button();
+            this.BtnListeEkle = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.Liste = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.scUrunGiris = new System.Windows.Forms.SplitContainer();
-            this.txtKonGonderimTarihi = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtKonGonderimTuru = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtCariAdi = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtCariTur = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtKonGonderimId = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pnlUst = new System.Windows.Forms.Panel();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Barkod = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +53,25 @@
             this.UTarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SKTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Durum = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.scUrunGiris = new System.Windows.Forms.SplitContainer();
+            this.txtKonGonderimTarihi = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtKonGonderimTuru = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCariAdi = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCariTur = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtKonGonderimId = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pnlUst = new System.Windows.Forms.Panel();
+            this.BtnPrint = new System.Windows.Forms.Button();
+            this.BtnKapat = new System.Windows.Forms.Button();
+            this.BtnTemizle = new System.Windows.Forms.Button();
+            this.BtnSil = new System.Windows.Forms.Button();
+            this.BtnGuncelle = new System.Windows.Forms.Button();
+            this.BtnKaydet = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scUrunGiris)).BeginInit();
@@ -80,92 +80,6 @@
             this.scUrunGiris.SuspendLayout();
             this.pnlUst.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // BtnPrint
-            // 
-            this.BtnPrint.BackgroundImage = global::IEA_ErpProject.Properties.Resources.print;
-            this.BtnPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnPrint.Location = new System.Drawing.Point(176, 12);
-            this.BtnPrint.Name = "BtnPrint";
-            this.BtnPrint.Size = new System.Drawing.Size(38, 38);
-            this.BtnPrint.TabIndex = 10;
-            this.BtnPrint.UseVisualStyleBackColor = true;
-            // 
-            // BtnKapat
-            // 
-            this.BtnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit1;
-            this.BtnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnKapat.Location = new System.Drawing.Point(1244, 12);
-            this.BtnKapat.Name = "BtnKapat";
-            this.BtnKapat.Size = new System.Drawing.Size(38, 38);
-            this.BtnKapat.TabIndex = 9;
-            this.BtnKapat.UseVisualStyleBackColor = true;
-            // 
-            // BtnTemizle
-            // 
-            this.BtnTemizle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.clearIcon2;
-            this.BtnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnTemizle.Location = new System.Drawing.Point(135, 12);
-            this.BtnTemizle.Name = "BtnTemizle";
-            this.BtnTemizle.Size = new System.Drawing.Size(38, 38);
-            this.BtnTemizle.TabIndex = 8;
-            this.BtnTemizle.UseVisualStyleBackColor = true;
-            // 
-            // BtnSil
-            // 
-            this.BtnSil.BackgroundImage = global::IEA_ErpProject.Properties.Resources.icons8_delete_303;
-            this.BtnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnSil.Location = new System.Drawing.Point(94, 12);
-            this.BtnSil.Name = "BtnSil";
-            this.BtnSil.Size = new System.Drawing.Size(38, 38);
-            this.BtnSil.TabIndex = 7;
-            this.BtnSil.Text = "Sil";
-            this.BtnSil.UseVisualStyleBackColor = true;
-            // 
-            // BtnKaydet
-            // 
-            this.BtnKaydet.BackgroundImage = global::IEA_ErpProject.Properties.Resources.save2;
-            this.BtnKaydet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnKaydet.Location = new System.Drawing.Point(12, 12);
-            this.BtnKaydet.Name = "BtnKaydet";
-            this.BtnKaydet.Size = new System.Drawing.Size(38, 38);
-            this.BtnKaydet.TabIndex = 5;
-            this.BtnKaydet.UseVisualStyleBackColor = true;
-            // 
-            // BtnListeSatirSil
-            // 
-            this.BtnListeSatirSil.BackgroundImage = global::IEA_ErpProject.Properties.Resources.minus;
-            this.BtnListeSatirSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnListeSatirSil.FlatAppearance.BorderSize = 0;
-            this.BtnListeSatirSil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnListeSatirSil.Location = new System.Drawing.Point(918, 4);
-            this.BtnListeSatirSil.Name = "BtnListeSatirSil";
-            this.BtnListeSatirSil.Size = new System.Drawing.Size(35, 35);
-            this.BtnListeSatirSil.TabIndex = 1;
-            this.BtnListeSatirSil.UseVisualStyleBackColor = false;
-            // 
-            // BtnListeEkle
-            // 
-            this.BtnListeEkle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.add;
-            this.BtnListeEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnListeEkle.FlatAppearance.BorderSize = 0;
-            this.BtnListeEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnListeEkle.Location = new System.Drawing.Point(959, 4);
-            this.BtnListeEkle.Name = "BtnListeEkle";
-            this.BtnListeEkle.Size = new System.Drawing.Size(35, 35);
-            this.BtnListeEkle.TabIndex = 0;
-            this.BtnListeEkle.UseVisualStyleBackColor = false;
-            // 
-            // BtnGuncelle
-            // 
-            this.BtnGuncelle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.icons8_refresh_641;
-            this.BtnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnGuncelle.Location = new System.Drawing.Point(53, 12);
-            this.BtnGuncelle.Name = "BtnGuncelle";
-            this.BtnGuncelle.Size = new System.Drawing.Size(38, 38);
-            this.BtnGuncelle.TabIndex = 6;
-            this.BtnGuncelle.UseVisualStyleBackColor = true;
             // 
             // txtKonGonderimAciklama
             // 
@@ -201,6 +115,30 @@
             this.panel1.Size = new System.Drawing.Size(997, 42);
             this.panel1.TabIndex = 2;
             // 
+            // BtnListeSatirSil
+            // 
+            this.BtnListeSatirSil.BackgroundImage = global::IEA_ErpProject.Properties.Resources.minus;
+            this.BtnListeSatirSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnListeSatirSil.FlatAppearance.BorderSize = 0;
+            this.BtnListeSatirSil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnListeSatirSil.Location = new System.Drawing.Point(918, 4);
+            this.BtnListeSatirSil.Name = "BtnListeSatirSil";
+            this.BtnListeSatirSil.Size = new System.Drawing.Size(35, 35);
+            this.BtnListeSatirSil.TabIndex = 1;
+            this.BtnListeSatirSil.UseVisualStyleBackColor = false;
+            // 
+            // BtnListeEkle
+            // 
+            this.BtnListeEkle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.add;
+            this.BtnListeEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnListeEkle.FlatAppearance.BorderSize = 0;
+            this.BtnListeEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnListeEkle.Location = new System.Drawing.Point(959, 4);
+            this.BtnListeEkle.Name = "BtnListeEkle";
+            this.BtnListeEkle.Size = new System.Drawing.Size(35, 35);
+            this.BtnListeEkle.TabIndex = 0;
+            this.BtnListeEkle.UseVisualStyleBackColor = false;
+            // 
             // label8
             // 
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -216,8 +154,8 @@
             // 
             // Liste
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LavenderBlush;
-            this.Liste.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.Liste.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Liste.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -234,21 +172,121 @@
             this.UTarih,
             this.SKTarihi,
             this.Durum});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.HotPink;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Liste.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.HotPink;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Liste.DefaultCellStyle = dataGridViewCellStyle4;
             this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Liste.Location = new System.Drawing.Point(0, 42);
             this.Liste.Name = "Liste";
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.LightPink;
-            this.Liste.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightPink;
+            this.Liste.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.Liste.Size = new System.Drawing.Size(997, 445);
             this.Liste.TabIndex = 1;
+            this.Liste.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellEnter);
+            this.Liste.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.Liste_EditingControlShowing);
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // Sira
+            // 
+            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Sira.HeaderText = "Sira";
+            this.Sira.Name = "Sira";
+            this.Sira.Visible = false;
+            // 
+            // Barkod
+            // 
+            this.Barkod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Barkod.HeaderText = "Barkod";
+            this.Barkod.Name = "Barkod";
+            this.Barkod.Width = 66;
+            // 
+            // UrunKodu
+            // 
+            this.UrunKodu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UrunKodu.HeaderText = "Ürün Kodu";
+            this.UrunKodu.Name = "UrunKodu";
+            // 
+            // LotSeri
+            // 
+            this.LotSeri.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.LotSeri.HeaderText = "Lot Seri No";
+            this.LotSeri.Name = "LotSeri";
+            this.LotSeri.Width = 79;
+            // 
+            // RafAdet
+            // 
+            this.RafAdet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.RafAdet.HeaderText = "Raf Adet";
+            this.RafAdet.Name = "RafAdet";
+            this.RafAdet.ReadOnly = true;
+            this.RafAdet.Width = 69;
+            // 
+            // SevkAdet
+            // 
+            this.SevkAdet.HeaderText = "Sevk Adet";
+            this.SevkAdet.Name = "SevkAdet";
+            // 
+            // Not
+            // 
+            this.Not.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle2.NullValue = "**";
+            this.Not.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Not.HeaderText = "Not";
+            this.Not.Name = "Not";
+            this.Not.Width = 49;
+            // 
+            // UrunId
+            // 
+            this.UrunId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.UrunId.HeaderText = "UrunId";
+            this.UrunId.Name = "UrunId";
+            this.UrunId.ReadOnly = true;
+            this.UrunId.Visible = false;
+            // 
+            // Uts
+            // 
+            this.Uts.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Uts.FalseValue = "False";
+            this.Uts.HeaderText = "UTS";
+            this.Uts.Name = "Uts";
+            this.Uts.TrueValue = "True";
+            this.Uts.Width = 35;
+            // 
+            // UTarih
+            // 
+            this.UTarih.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.UTarih.HeaderText = "Üretim Tarihi";
+            this.UTarih.Name = "UTarih";
+            this.UTarih.Width = 84;
+            // 
+            // SKTarihi
+            // 
+            this.SKTarihi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SKTarihi.HeaderText = "Son Kullanma Tarihi";
+            this.SKTarihi.Name = "SKTarihi";
+            this.SKTarihi.ReadOnly = true;
+            this.SKTarihi.Width = 115;
+            // 
+            // Durum
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.HotPink;
+            dataGridViewCellStyle3.NullValue = false;
+            this.Durum.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Durum.HeaderText = "Durum";
+            this.Durum.Name = "Durum";
+            this.Durum.Visible = false;
             // 
             // label1
             // 
@@ -440,118 +478,79 @@
             this.pnlUst.Size = new System.Drawing.Size(1295, 57);
             this.pnlUst.TabIndex = 6;
             // 
-            // Id
+            // BtnPrint
             // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            this.Id.Width = 41;
+            this.BtnPrint.BackgroundImage = global::IEA_ErpProject.Properties.Resources.print;
+            this.BtnPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnPrint.Location = new System.Drawing.Point(176, 12);
+            this.BtnPrint.Name = "BtnPrint";
+            this.BtnPrint.Size = new System.Drawing.Size(38, 38);
+            this.BtnPrint.TabIndex = 10;
+            this.BtnPrint.UseVisualStyleBackColor = true;
             // 
-            // Sira
+            // BtnKapat
             // 
-            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Sira.HeaderText = "Sira";
-            this.Sira.Name = "Sira";
-            this.Sira.Visible = false;
-            this.Sira.Width = 50;
+            this.BtnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit1;
+            this.BtnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnKapat.Location = new System.Drawing.Point(1244, 12);
+            this.BtnKapat.Name = "BtnKapat";
+            this.BtnKapat.Size = new System.Drawing.Size(38, 38);
+            this.BtnKapat.TabIndex = 9;
+            this.BtnKapat.UseVisualStyleBackColor = true;
             // 
-            // Barkod
+            // BtnTemizle
             // 
-            this.Barkod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Barkod.HeaderText = "Barkod";
-            this.Barkod.Name = "Barkod";
-            this.Barkod.ReadOnly = true;
-            this.Barkod.Visible = false;
-            this.Barkod.Width = 66;
+            this.BtnTemizle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.clearIcon2;
+            this.BtnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnTemizle.Location = new System.Drawing.Point(135, 12);
+            this.BtnTemizle.Name = "BtnTemizle";
+            this.BtnTemizle.Size = new System.Drawing.Size(38, 38);
+            this.BtnTemizle.TabIndex = 8;
+            this.BtnTemizle.UseVisualStyleBackColor = true;
             // 
-            // UrunKodu
+            // BtnSil
             // 
-            this.UrunKodu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.UrunKodu.HeaderText = "Ürün Kodu";
-            this.UrunKodu.Name = "UrunKodu";
+            this.BtnSil.BackgroundImage = global::IEA_ErpProject.Properties.Resources.icons8_delete_303;
+            this.BtnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSil.Location = new System.Drawing.Point(94, 12);
+            this.BtnSil.Name = "BtnSil";
+            this.BtnSil.Size = new System.Drawing.Size(38, 38);
+            this.BtnSil.TabIndex = 7;
+            this.BtnSil.Text = "Sil";
+            this.BtnSil.UseVisualStyleBackColor = true;
             // 
-            // LotSeri
+            // BtnGuncelle
             // 
-            this.LotSeri.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.LotSeri.HeaderText = "Lot Seri No";
-            this.LotSeri.Name = "LotSeri";
-            this.LotSeri.Width = 85;
+            this.BtnGuncelle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.icons8_refresh_641;
+            this.BtnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnGuncelle.Location = new System.Drawing.Point(53, 12);
+            this.BtnGuncelle.Name = "BtnGuncelle";
+            this.BtnGuncelle.Size = new System.Drawing.Size(38, 38);
+            this.BtnGuncelle.TabIndex = 6;
+            this.BtnGuncelle.UseVisualStyleBackColor = true;
             // 
-            // RafAdet
+            // BtnKaydet
             // 
-            this.RafAdet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.RafAdet.HeaderText = "Raf Adet";
-            this.RafAdet.Name = "RafAdet";
-            this.RafAdet.ReadOnly = true;
-            this.RafAdet.Width = 74;
+            this.BtnKaydet.BackgroundImage = global::IEA_ErpProject.Properties.Resources.save2;
+            this.BtnKaydet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnKaydet.Location = new System.Drawing.Point(12, 12);
+            this.BtnKaydet.Name = "BtnKaydet";
+            this.BtnKaydet.Size = new System.Drawing.Size(38, 38);
+            this.BtnKaydet.TabIndex = 5;
+            this.BtnKaydet.UseVisualStyleBackColor = true;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
-            // SevkAdet
-            // 
-            this.SevkAdet.HeaderText = "Sevk Adet";
-            this.SevkAdet.Name = "SevkAdet";
-            // 
-            // Not
-            // 
-            this.Not.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle7.NullValue = "**";
-            this.Not.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Not.HeaderText = "Not";
-            this.Not.Name = "Not";
-            this.Not.Width = 49;
-            // 
-            // UrunId
-            // 
-            this.UrunId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.UrunId.HeaderText = "UrunId";
-            this.UrunId.Name = "UrunId";
-            this.UrunId.ReadOnly = true;
-            this.UrunId.Visible = false;
-            this.UrunId.Width = 64;
-            // 
-            // Uts
-            // 
-            this.Uts.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Uts.FalseValue = "False";
-            this.Uts.HeaderText = "UTS";
-            this.Uts.Name = "Uts";
-            this.Uts.TrueValue = "True";
-            this.Uts.Width = 35;
-            // 
-            // UTarih
-            // 
-            this.UTarih.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.UTarih.HeaderText = "Üretim Tarihi";
-            this.UTarih.Name = "UTarih";
-            this.UTarih.Width = 91;
-            // 
-            // SKTarihi
-            // 
-            this.SKTarihi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SKTarihi.HeaderText = "Son Kullanma Tarihi";
-            this.SKTarihi.Name = "SKTarihi";
-            this.SKTarihi.ReadOnly = true;
-            this.SKTarihi.Width = 115;
-            // 
-            // Durum
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.HotPink;
-            dataGridViewCellStyle8.NullValue = false;
-            this.Durum.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Durum.HeaderText = "Durum";
-            this.Durum.Name = "Durum";
-            this.Durum.Visible = false;
-            // 
-            // KonsinyeGiris
+            // KonsinyeGonderim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1295, 548);
             this.Controls.Add(this.scUrunGiris);
             this.Controls.Add(this.pnlUst);
-            this.Name = "KonsinyeGiris";
+            this.Name = "KonsinyeGonderim";
             this.Text = "KonsinyeGiris";
+            this.Load += new System.EventHandler(this.KonsinyeGonderim_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
             this.scUrunGiris.Panel1.ResumeLayout(false);
@@ -578,7 +577,6 @@
         private System.Windows.Forms.Label etiketId;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView Liste;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SplitContainer scUrunGiris;
         private System.Windows.Forms.DateTimePicker txtKonGonderimTarihi;
@@ -605,5 +603,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UTarih;
         private System.Windows.Forms.DataGridViewTextBoxColumn SKTarihi;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Durum;
+        public System.Windows.Forms.DataGridView Liste;
     }
 }

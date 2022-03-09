@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject.KonsinyeIslemleri.Giris
 {
-    public partial class KonsinyeGirisListesi : Form
+    public partial class KonsinyeGonderimListesi : Form
     {
-        public KonsinyeGirisListesi()
+        public bool Secim = false;
+
+        public KonsinyeGonderimListesi()
         {
             InitializeComponent();
+        }
+
+        private void KonsinyeGirisListesi_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

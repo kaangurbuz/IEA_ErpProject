@@ -41,7 +41,6 @@ namespace IEA_ErpProject.Entity
         public virtual DbSet<tblUrunGirisAlt> tblUrunGirisAlt { get; set; }
         public virtual DbSet<tblUrunGirisUst> tblUrunGirisUst { get; set; }
         public virtual DbSet<tblPersoneller> tblPersoneller { get; set; }
-        public virtual DbSet<tblKonsinyeGonderimler> tblKonsinyeGonderimler { get; set; }
         public virtual DbSet<tblStokDurum> tblStokDurum { get; set; }
         public virtual DbSet<tblUsers> tblUsers { get; set; }
     

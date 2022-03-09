@@ -111,24 +111,6 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TipAdi" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="tblKonsinyeGonderimler">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CariTur" Type="nvarchar" MaxLength="15" />
-          <Property Name="CariAdi" Type="nvarchar" MaxLength="200" />
-          <Property Name="CariId" Type="int" Nullable="false" />
-          <Property Name="GonderimTarih" Type="datetime" Nullable="false" />
-          <Property Name="Aciklama" Type="nvarchar" MaxLength="250" />
-          <Property Name="UrunId" Type="int" Nullable="false" />
-          <Property Name="Adet" Type="int" Nullable="false" />
-          <Property Name="isDeleted" Type="bit" Nullable="false" />
-          <Property Name="CreatedUser" Type="int" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="UpdatedUser" Type="int" Nullable="false" />
-          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
-        </EntityType>
         <EntityType Name="tblPersoneller">
           <Key>
             <PropertyRef Name="Id" />
@@ -246,20 +228,6 @@
           <Property Name="Password" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
-        <Association Name="FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId">
-          <End Role="tblStokDurum" Type="Self.tblStokDurum" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="tblKonsinyeGonderimler" Type="Self.tblKonsinyeGonderimler" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblStokDurum">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="tblKonsinyeGonderimler">
-              <PropertyRef Name="UrunId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tblDoktorlar_Sehirler">
           <End Role="Sehirler" Type="Self.Sehirler" Multiplicity="0..1" />
           <End Role="tblDoktorlar" Type="Self.tblDoktorlar" Multiplicity="*" />
@@ -469,7 +437,6 @@
           <EntitySet Name="tblHastaneDetaylar" EntityType="Self.tblHastaneDetaylar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHastaneler" EntityType="Self.tblHastaneler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHastaneTipleri" EntityType="Self.tblHastaneTipleri" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tblKonsinyeGonderimler" EntityType="Self.tblKonsinyeGonderimler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPersoneller" EntityType="Self.tblPersoneller" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblStokDurum" EntityType="Self.tblStokDurum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUrunGirisAlt" EntityType="Self.tblUrunGirisAlt" Schema="dbo" store:Type="Tables" />
@@ -477,10 +444,6 @@
           <EntitySet Name="tblUrunKayitAlt" EntityType="Self.tblUrunKayitAlt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUrunKayitUst" EntityType="Self.tblUrunKayitUst" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId" Association="Self.FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId">
-            <End Role="tblStokDurum" EntitySet="tblStokDurum" />
-            <End Role="tblKonsinyeGonderimler" EntitySet="tblKonsinyeGonderimler" />
-          </AssociationSet>
           <AssociationSet Name="FK_tblDoktorlar_Sehirler" Association="Self.FK_tblDoktorlar_Sehirler">
             <End Role="Sehirler" EntitySet="Sehirler" />
             <End Role="tblDoktorlar" EntitySet="tblDoktorlar" />
@@ -643,13 +606,8 @@
             <End Role="tblDepartmanlar" EntitySet="tblDepartmanlar" />
             <End Role="tblPersoneller" EntitySet="tblPersoneller" />
           </AssociationSet>
-          <EntitySet Name="tblKonsinyeGonderimler" EntityType="ErpProject102SModel.tblKonsinyeGonderimler" />
           <EntitySet Name="tblStokDurum" EntityType="ErpProject102SModel.tblStokDurum" />
           <EntitySet Name="tblUsers" EntityType="ErpProject102SModel.tblUsers" />
-          <AssociationSet Name="FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId" Association="ErpProject102SModel.FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId">
-            <End Role="tblStokDurum" EntitySet="tblStokDurum" />
-            <End Role="tblKonsinyeGonderimler" EntitySet="tblKonsinyeGonderimler" />
-          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1053,25 +1011,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="tblKonsinyeGonderimler">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CariTur" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="CariAdi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="CariId" Type="Int32" Nullable="false" />
-          <Property Name="GonderimTarih" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Aciklama" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="UrunId" Type="Int32" Nullable="false" />
-          <Property Name="Adet" Type="Int32" Nullable="false" />
-          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-          <Property Name="CreatedUser" Type="Int32" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UpdatedUser" Type="Int32" Nullable="false" />
-          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="tblStokDurum" Relationship="ErpProject102SModel.FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId" FromRole="tblKonsinyeGonderimler" ToRole="tblStokDurum" />
-        </EntityType>
         <EntityType Name="tblStokDurum">
           <Key>
             <PropertyRef Name="Id" />
@@ -1090,7 +1029,6 @@
           <Property Name="UTS" Type="Boolean" />
           <Property Name="UretimTarih" Type="DateTime" Precision="0" />
           <Property Name="SonKullanmaTarih" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="tblKonsinyeGonderimler" Relationship="ErpProject102SModel.FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId" FromRole="tblStokDurum" ToRole="tblKonsinyeGonderimler" />
         </EntityType>
         <EntityType Name="tblUsers">
           <Key>
@@ -1101,20 +1039,6 @@
           <Property Name="Password" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
-        <Association Name="FK_dbo_tblKonsinyeGonderimler_dbo_tblStokDurum_UrunId">
-          <End Type="ErpProject102SModel.tblStokDurum" Role="tblStokDurum" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ErpProject102SModel.tblKonsinyeGonderimler" Role="tblKonsinyeGonderimler" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblStokDurum">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="tblKonsinyeGonderimler">
-              <PropertyRef Name="UrunId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1350,25 +1274,6 @@
                 <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
                 <ScalarProperty Name="Adi" ColumnName="Adi" />
                 <ScalarProperty Name="Unvan" ColumnName="Unvan" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblKonsinyeGonderimler">
-            <EntityTypeMapping TypeName="ErpProject102SModel.tblKonsinyeGonderimler">
-              <MappingFragment StoreEntitySet="tblKonsinyeGonderimler">
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="UpdatedUser" ColumnName="UpdatedUser" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
-                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
-                <ScalarProperty Name="Adet" ColumnName="Adet" />
-                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
-                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
-                <ScalarProperty Name="GonderimTarih" ColumnName="GonderimTarih" />
-                <ScalarProperty Name="CariId" ColumnName="CariId" />
-                <ScalarProperty Name="CariAdi" ColumnName="CariAdi" />
-                <ScalarProperty Name="CariTur" ColumnName="CariTur" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

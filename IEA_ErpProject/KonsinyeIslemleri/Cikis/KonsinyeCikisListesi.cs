@@ -12,9 +12,15 @@ namespace IEA_ErpProject.KonsinyeIslemleri.Cikis
 {
     public partial class KonsinyeCikisListesi : Form
     {
+        public bool Secim = false;
         public KonsinyeCikisListesi()
         {
             InitializeComponent();
+        }
+
+        private void KonsinyeCikisListesi_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

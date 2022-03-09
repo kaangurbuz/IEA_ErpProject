@@ -12,7 +12,8 @@ using IEA_ErpProject.BilgiGiris.Personeller;
 using IEA_ErpProject.BilgiGiris.Urunler;
 using IEA_ErpProject.UrunGiris.Stok;
 using IEA_ErpProject.UrunGiris.Urunler;
-
+using IEA_ErpProject.KonsinyeIslemleri.Giris;
+using IEA_ErpProject.KonsinyeIslemleri.Cikis;
 namespace IEA_ErpProject.Functions
 {
     public class Formlar
@@ -175,6 +176,38 @@ namespace IEA_ErpProject.Functions
             frm.MdiParent = Form.ActiveForm;
             frm.Show();
             frm.Ac(id);
+        }
+
+        public int KonsinyeGonderimListesiAc(bool secim = false)
+        {
+            KonsinyeGonderimListesi frm = new KonsinyeGonderimListesi();
+            if (secim)
+            {
+                frm.Secim = true;
+                frm.ShowDialog();
+            }
+            else
+            {
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            return AnaSayfa.Aktarma;
+        }
+
+        public int KonsinyeCikisListesiAc(bool secim = false)    
+        {
+            KonsinyeCikisListesi frm = new KonsinyeCikisListesi();
+            if (secim)
+            {
+                frm.Secim = true;
+                frm.ShowDialog();
+            }
+            else
+            {
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            return AnaSayfa.Aktarma;
         }
     }
 }

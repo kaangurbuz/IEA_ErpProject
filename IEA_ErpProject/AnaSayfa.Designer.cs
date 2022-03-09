@@ -28,37 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnaSayfa));
             this.tabPGenel = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblUserNickName = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
+            this.BtnKapat = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlSol = new System.Windows.Forms.Panel();
             this.scMenu = new System.Windows.Forms.SplitContainer();
             this.TvMenu = new System.Windows.Forms.TreeView();
-            this.BtnStok = new System.Windows.Forms.Button();
-            this.BtnUrunGiris = new System.Windows.Forms.Button();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnBilgiGiris = new System.Windows.Forms.Button();
+            this.BtnUrunGiris = new System.Windows.Forms.Button();
+            this.BtnStok = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.pnlAltSag = new System.Windows.Forms.Panel();
+            this.BtnButonListele = new System.Windows.Forms.Button();
             this.pnlSolUst = new System.Windows.Forms.Panel();
+            this.btnSolUstCollapse = new System.Windows.Forms.Button();
             this.lblSolUstMenu = new System.Windows.Forms.Label();
+            this.btnSolUstAra = new System.Windows.Forms.Button();
             this.txtSolUstAra = new System.Windows.Forms.TextBox();
             this.splitter2 = new System.Windows.Forms.Splitter();
-            this.lblUserNickName = new System.Windows.Forms.Label();
-            this.btnSolUstCollapse = new System.Windows.Forms.Button();
-            this.btnSolUstAra = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BtnKapat = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpButtons = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnKonsinye = new System.Windows.Forms.Button();
             this.tabPGenel.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlSol.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scMenu)).BeginInit();
             this.scMenu.Panel1.SuspendLayout();
             this.scMenu.Panel2.SuspendLayout();
             this.scMenu.SuspendLayout();
-            this.pnlSolUst.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            this.pnlAltSag.SuspendLayout();
+            this.pnlSolUst.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPGenel
@@ -87,6 +101,28 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Genel";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::IEA_ErpProject.Properties.Resources.Users_Administrator_icon;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(9, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 90);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblUserNickName
+            // 
+            this.lblUserNickName.BackColor = System.Drawing.Color.LightPink;
+            this.lblUserNickName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblUserNickName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUserNickName.Location = new System.Drawing.Point(130, 54);
+            this.lblUserNickName.Name = "lblUserNickName";
+            this.lblUserNickName.Size = new System.Drawing.Size(284, 29);
+            this.lblUserNickName.TabIndex = 13;
+            this.lblUserNickName.Text = "*****";
+            this.lblUserNickName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblUserName
             // 
             this.lblUserName.BackColor = System.Drawing.Color.LightPink;
@@ -98,6 +134,18 @@
             this.lblUserName.TabIndex = 13;
             this.lblUserName.Text = "*****";
             this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnKapat
+            // 
+            this.BtnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit1;
+            this.BtnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnKapat.Location = new System.Drawing.Point(1307, 19);
+            this.BtnKapat.Name = "BtnKapat";
+            this.BtnKapat.Size = new System.Drawing.Size(64, 64);
+            this.BtnKapat.TabIndex = 12;
+            this.BtnKapat.UseVisualStyleBackColor = true;
+            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
             // 
             // tabPage2
             // 
@@ -130,7 +178,7 @@
             this.pnlSol.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSol.Location = new System.Drawing.Point(0, 135);
             this.pnlSol.Name = "pnlSol";
-            this.pnlSol.Size = new System.Drawing.Size(337, 539);
+            this.pnlSol.Size = new System.Drawing.Size(337, 472);
             this.pnlSol.TabIndex = 2;
             // 
             // scMenu
@@ -150,8 +198,9 @@
             // 
             this.scMenu.Panel2.BackColor = System.Drawing.Color.LightPink;
             this.scMenu.Panel2.Controls.Add(this.flowLayoutPanel1);
-            this.scMenu.Size = new System.Drawing.Size(337, 462);
-            this.scMenu.SplitterDistance = 208;
+            this.scMenu.Panel2.Controls.Add(this.pnlAltSag);
+            this.scMenu.Size = new System.Drawing.Size(337, 395);
+            this.scMenu.SplitterDistance = 199;
             this.scMenu.TabIndex = 4;
             // 
             // TvMenu
@@ -160,35 +209,42 @@
             this.TvMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TvMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TvMenu.ForeColor = System.Drawing.Color.DimGray;
+            this.TvMenu.ImageKey = "icons8-folder2-32.png";
+            this.TvMenu.ImageList = this.ımageList1;
             this.TvMenu.Location = new System.Drawing.Point(0, 0);
             this.TvMenu.Name = "TvMenu";
-            this.TvMenu.Size = new System.Drawing.Size(333, 204);
+            this.TvMenu.SelectedImageIndex = 0;
+            this.TvMenu.ShowLines = false;
+            this.TvMenu.Size = new System.Drawing.Size(333, 195);
             this.TvMenu.TabIndex = 0;
             this.TvMenu.DoubleClick += new System.EventHandler(this.TvMenu_DoubleClick);
             // 
-            // BtnStok
+            // ımageList1
             // 
-            this.BtnStok.BackColor = System.Drawing.Color.LavenderBlush;
-            this.BtnStok.ForeColor = System.Drawing.Color.DimGray;
-            this.BtnStok.Location = new System.Drawing.Point(164, 3);
-            this.BtnStok.Name = "BtnStok";
-            this.BtnStok.Size = new System.Drawing.Size(74, 56);
-            this.BtnStok.TabIndex = 1;
-            this.BtnStok.Text = "Stok Islemleri";
-            this.BtnStok.UseVisualStyleBackColor = false;
-            this.BtnStok.Click += new System.EventHandler(this.BtnStok_Click);
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "icons8-folder-30.png");
+            this.ımageList1.Images.SetKeyName(1, "icons8-folder2-32.png");
             // 
-            // BtnUrunGiris
+            // flowLayoutPanel1
             // 
-            this.BtnUrunGiris.BackColor = System.Drawing.Color.LavenderBlush;
-            this.BtnUrunGiris.ForeColor = System.Drawing.Color.DimGray;
-            this.BtnUrunGiris.Location = new System.Drawing.Point(84, 3);
-            this.BtnUrunGiris.Name = "BtnUrunGiris";
-            this.BtnUrunGiris.Size = new System.Drawing.Size(74, 56);
-            this.BtnUrunGiris.TabIndex = 1;
-            this.BtnUrunGiris.Text = "Urun Islemleri";
-            this.BtnUrunGiris.UseVisualStyleBackColor = false;
-            this.BtnUrunGiris.Click += new System.EventHandler(this.BtnUrunGiris_Click);
+            this.flowLayoutPanel1.Controls.Add(this.BtnBilgiGiris);
+            this.flowLayoutPanel1.Controls.Add(this.BtnUrunGiris);
+            this.flowLayoutPanel1.Controls.Add(this.BtnStok);
+            this.flowLayoutPanel1.Controls.Add(this.BtnKonsinye);
+            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.button2);
+            this.flowLayoutPanel1.Controls.Add(this.button3);
+            this.flowLayoutPanel1.Controls.Add(this.button4);
+            this.flowLayoutPanel1.Controls.Add(this.button5);
+            this.flowLayoutPanel1.Controls.Add(this.button6);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(246, 188);
+            this.flowLayoutPanel1.TabIndex = 2;
+            this.flowLayoutPanel1.SizeChanged += new System.EventHandler(this.flowLayoutPanel1_SizeChanged);
             // 
             // BtnBilgiGiris
             // 
@@ -202,6 +258,130 @@
             this.BtnBilgiGiris.UseVisualStyleBackColor = false;
             this.BtnBilgiGiris.Click += new System.EventHandler(this.BtnBilgiGiris_Click);
             // 
+            // BtnUrunGiris
+            // 
+            this.BtnUrunGiris.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BtnUrunGiris.ForeColor = System.Drawing.Color.DimGray;
+            this.BtnUrunGiris.Location = new System.Drawing.Point(3, 65);
+            this.BtnUrunGiris.Name = "BtnUrunGiris";
+            this.BtnUrunGiris.Size = new System.Drawing.Size(74, 56);
+            this.BtnUrunGiris.TabIndex = 1;
+            this.BtnUrunGiris.Text = "Urun Islemleri";
+            this.BtnUrunGiris.UseVisualStyleBackColor = false;
+            this.BtnUrunGiris.Click += new System.EventHandler(this.BtnUrunGiris_Click);
+            // 
+            // BtnStok
+            // 
+            this.BtnStok.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BtnStok.ForeColor = System.Drawing.Color.DimGray;
+            this.BtnStok.Location = new System.Drawing.Point(3, 127);
+            this.BtnStok.Name = "BtnStok";
+            this.BtnStok.Size = new System.Drawing.Size(74, 56);
+            this.BtnStok.TabIndex = 1;
+            this.BtnStok.Text = "Stok Islemleri";
+            this.BtnStok.UseVisualStyleBackColor = false;
+            this.BtnStok.Click += new System.EventHandler(this.BtnStok_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.ForeColor = System.Drawing.Color.Red;
+            this.button1.Location = new System.Drawing.Point(84, 65);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 56);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.LavenderBlush;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.Location = new System.Drawing.Point(84, 127);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 56);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "2";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.LavenderBlush;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button3.ForeColor = System.Drawing.Color.Red;
+            this.button3.Location = new System.Drawing.Point(165, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 56);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "3";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.LavenderBlush;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button4.ForeColor = System.Drawing.Color.Red;
+            this.button4.Location = new System.Drawing.Point(165, 65);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 56);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "4";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.LavenderBlush;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button5.ForeColor = System.Drawing.Color.Red;
+            this.button5.Location = new System.Drawing.Point(165, 127);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 56);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "5";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.LavenderBlush;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button6.ForeColor = System.Drawing.Color.Red;
+            this.button6.Location = new System.Drawing.Point(246, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 56);
+            this.button6.TabIndex = 8;
+            this.button6.Text = "6";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // pnlAltSag
+            // 
+            this.pnlAltSag.Controls.Add(this.BtnButonListele);
+            this.pnlAltSag.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlAltSag.Location = new System.Drawing.Point(246, 0);
+            this.pnlAltSag.Name = "pnlAltSag";
+            this.pnlAltSag.Size = new System.Drawing.Size(87, 188);
+            this.pnlAltSag.TabIndex = 5;
+            // 
+            // BtnButonListele
+            // 
+            this.BtnButonListele.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BtnButonListele.BackgroundImage = global::IEA_ErpProject.Properties.Resources.icons8_play_50;
+            this.BtnButonListele.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnButonListele.ForeColor = System.Drawing.Color.DimGray;
+            this.BtnButonListele.Location = new System.Drawing.Point(5, 3);
+            this.BtnButonListele.Name = "BtnButonListele";
+            this.BtnButonListele.Size = new System.Drawing.Size(74, 56);
+            this.BtnButonListele.TabIndex = 2;
+            this.BtnButonListele.UseVisualStyleBackColor = false;
+            this.BtnButonListele.Click += new System.EventHandler(this.BtnButonListele_Click);
+            // 
             // pnlSolUst
             // 
             this.pnlSolUst.BackColor = System.Drawing.Color.LightPink;
@@ -214,6 +394,18 @@
             this.pnlSolUst.Name = "pnlSolUst";
             this.pnlSolUst.Size = new System.Drawing.Size(337, 77);
             this.pnlSolUst.TabIndex = 4;
+            // 
+            // btnSolUstCollapse
+            // 
+            this.btnSolUstCollapse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSolUstCollapse.BackgroundImage = global::IEA_ErpProject.Properties.Resources.rightleft;
+            this.btnSolUstCollapse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSolUstCollapse.Location = new System.Drawing.Point(304, 43);
+            this.btnSolUstCollapse.Name = "btnSolUstCollapse";
+            this.btnSolUstCollapse.Size = new System.Drawing.Size(25, 25);
+            this.btnSolUstCollapse.TabIndex = 3;
+            this.btnSolUstCollapse.UseVisualStyleBackColor = true;
+            this.btnSolUstCollapse.Click += new System.EventHandler(this.btnSolUstCollapse_Click);
             // 
             // lblSolUstMenu
             // 
@@ -229,6 +421,18 @@
             this.lblSolUstMenu.TabIndex = 2;
             this.lblSolUstMenu.Text = "****";
             this.lblSolUstMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnSolUstAra
+            // 
+            this.btnSolUstAra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSolUstAra.AutoSize = true;
+            this.btnSolUstAra.BackgroundImage = global::IEA_ErpProject.Properties.Resources.searchicon;
+            this.btnSolUstAra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSolUstAra.Location = new System.Drawing.Point(304, 8);
+            this.btnSolUstAra.Name = "btnSolUstAra";
+            this.btnSolUstAra.Size = new System.Drawing.Size(25, 25);
+            this.btnSolUstAra.TabIndex = 1;
+            this.btnSolUstAra.UseVisualStyleBackColor = true;
             // 
             // txtSolUstAra
             // 
@@ -247,86 +451,39 @@
             this.splitter2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitter2.Location = new System.Drawing.Point(337, 135);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(3, 539);
+            this.splitter2.Size = new System.Drawing.Size(3, 472);
             this.splitter2.TabIndex = 3;
             this.splitter2.TabStop = false;
             // 
-            // lblUserNickName
+            // flpButtons
             // 
-            this.lblUserNickName.BackColor = System.Drawing.Color.LightPink;
-            this.lblUserNickName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblUserNickName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblUserNickName.Location = new System.Drawing.Point(130, 54);
-            this.lblUserNickName.Name = "lblUserNickName";
-            this.lblUserNickName.Size = new System.Drawing.Size(284, 29);
-            this.lblUserNickName.TabIndex = 13;
-            this.lblUserNickName.Text = "*****";
-            this.lblUserNickName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.flpButtons.BackColor = System.Drawing.Color.LavenderBlush;
+            this.flpButtons.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flpButtons.Location = new System.Drawing.Point(340, 135);
+            this.flpButtons.Name = "flpButtons";
+            this.flpButtons.Size = new System.Drawing.Size(200, 472);
+            this.flpButtons.TabIndex = 7;
+            this.flpButtons.Visible = false;
             // 
-            // btnSolUstCollapse
+            // BtnKonsinye
             // 
-            this.btnSolUstCollapse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSolUstCollapse.BackgroundImage = global::IEA_ErpProject.Properties.Resources.rightleft;
-            this.btnSolUstCollapse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSolUstCollapse.Location = new System.Drawing.Point(304, 43);
-            this.btnSolUstCollapse.Name = "btnSolUstCollapse";
-            this.btnSolUstCollapse.Size = new System.Drawing.Size(25, 25);
-            this.btnSolUstCollapse.TabIndex = 3;
-            this.btnSolUstCollapse.UseVisualStyleBackColor = true;
-            this.btnSolUstCollapse.Click += new System.EventHandler(this.btnSolUstCollapse_Click);
-            // 
-            // btnSolUstAra
-            // 
-            this.btnSolUstAra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSolUstAra.AutoSize = true;
-            this.btnSolUstAra.BackgroundImage = global::IEA_ErpProject.Properties.Resources.searchicon;
-            this.btnSolUstAra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSolUstAra.Location = new System.Drawing.Point(304, 8);
-            this.btnSolUstAra.Name = "btnSolUstAra";
-            this.btnSolUstAra.Size = new System.Drawing.Size(25, 25);
-            this.btnSolUstAra.TabIndex = 1;
-            this.btnSolUstAra.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::IEA_ErpProject.Properties.Resources.Users_Administrator_icon;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 90);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            // 
-            // BtnKapat
-            // 
-            this.BtnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnKapat.BackgroundImage = global::IEA_ErpProject.Properties.Resources.exit1;
-            this.BtnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnKapat.Location = new System.Drawing.Point(1307, 19);
-            this.BtnKapat.Name = "BtnKapat";
-            this.BtnKapat.Size = new System.Drawing.Size(64, 64);
-            this.BtnKapat.TabIndex = 12;
-            this.BtnKapat.UseVisualStyleBackColor = true;
-            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.BtnBilgiGiris);
-            this.flowLayoutPanel1.Controls.Add(this.BtnUrunGiris);
-            this.flowLayoutPanel1.Controls.Add(this.BtnStok);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(333, 246);
-            this.flowLayoutPanel1.TabIndex = 2;
+            this.BtnKonsinye.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BtnKonsinye.ForeColor = System.Drawing.Color.DimGray;
+            this.BtnKonsinye.Location = new System.Drawing.Point(84, 3);
+            this.BtnKonsinye.Name = "BtnKonsinye";
+            this.BtnKonsinye.Size = new System.Drawing.Size(74, 56);
+            this.BtnKonsinye.TabIndex = 9;
+            this.BtnKonsinye.Text = "Konsinye Islemleri";
+            this.BtnKonsinye.UseVisualStyleBackColor = false;
+            this.BtnKonsinye.Click += new System.EventHandler(this.BtnKonsinye_Click);
             // 
             // AnaSayfa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1398, 674);
+            this.ClientSize = new System.Drawing.Size(1398, 607);
+            this.Controls.Add(this.flpButtons);
             this.Controls.Add(this.splitter2);
             this.Controls.Add(this.pnlSol);
             this.Controls.Add(this.splitter1);
@@ -334,21 +491,22 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.IsMdiContainer = true;
             this.Name = "AnaSayfa";
-            this.Text = "AnaSayfa";
+            this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AnaSayfa_FormClosing);
             this.Load += new System.EventHandler(this.AnaSayfa_Load);
             this.tabPGenel.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlSol.ResumeLayout(false);
             this.scMenu.Panel1.ResumeLayout(false);
             this.scMenu.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scMenu)).EndInit();
             this.scMenu.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.pnlAltSag.ResumeLayout(false);
             this.pnlSolUst.ResumeLayout(false);
             this.pnlSolUst.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -376,6 +534,17 @@
         public System.Windows.Forms.Label lblUserNickName;
         public System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.ImageList ımageList1;
+        private System.Windows.Forms.Button BtnButonListele;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel pnlAltSag;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.FlowLayoutPanel flpButtons;
+        private System.Windows.Forms.Button BtnKonsinye;
     }
 }
 

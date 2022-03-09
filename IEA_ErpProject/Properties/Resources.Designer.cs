@@ -233,6 +233,16 @@ namespace IEA_ErpProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_play_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-play-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_refresh_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-refresh-64", resourceCulture);

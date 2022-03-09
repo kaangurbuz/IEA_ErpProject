@@ -14,12 +14,6 @@ namespace IEA_ErpProject.Entity
     
     public partial class tblStokDurum
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblStokDurum()
-        {
-            this.tblKonsinyeGonderimler = new HashSet<tblKonsinyeGonderimler>();
-        }
-    
         public int Id { get; set; }
         public string Barkod { get; set; }
         public string UrunKodu { get; set; }
@@ -34,8 +28,5 @@ namespace IEA_ErpProject.Entity
         public Nullable<bool> UTS { get; set; }
         public Nullable<System.DateTime> UretimTarih { get; set; }
         public Nullable<System.DateTime> SonKullanmaTarih { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblKonsinyeGonderimler> tblKonsinyeGonderimler { get; set; }
     }
 }
