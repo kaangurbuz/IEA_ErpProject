@@ -8,13 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IEA_ErpProject.UrunGiris.Urunler
+namespace IEA_ErpProject.KonsinyeIslemleri.Giris
 {
-    public partial class UrunlerListesi : Form
+    public partial class KonsinyeGonderimListesi : Form
     {
-        public UrunlerListesi()
+        public bool Secim = false;
+
+        public KonsinyeGonderimListesi()
         {
             InitializeComponent();
+        }
+
+        private void KonsinyeGirisListesi_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

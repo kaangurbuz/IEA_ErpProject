@@ -16,6 +16,8 @@ namespace IEA_ErpProject.BilgiGiris.Hastaneler
     {
         private readonly ErpProject102SEntities _db = new ErpProject102SEntities();
         public string HAdi="";
+        private int secimId = -1;
+        private tblHastaneDetaylar kayitBul;
         public HastaneDetayGoster()
         {
             InitializeComponent();
@@ -42,6 +44,7 @@ namespace IEA_ErpProject.BilgiGiris.Hastaneler
                 Liste.Rows[i].Cells[3].Value = item.Tel;
                 Liste.Rows[i].Cells[4].Value = item.Gsm;
                 Liste.Rows[i].Cells[5].Value = item.Email;
+                Liste.Rows[i].Cells[6].Value = item.Id;
                 i++;
 
             }
@@ -56,5 +59,42 @@ namespace IEA_ErpProject.BilgiGiris.Hastaneler
             Close();
         }
 
+        private void BtnSil_Click(object sender, EventArgs e)
+        {
+            Sil();
+        }
+
+        private void Sil()
+        {
+            if (secimId > 0)
+            {
+                _db.tblHastaneDetaylar.Remove(kayitBul);
+                _db.SaveChanges();
+                MessageBox.Show("Kaydiniz silinmistir! Gecmis Olsun.");
+                Listele();
+            }
+        }
+
+        private void Liste_DoubleClick(object sender, EventArgs e)
+        {
+            if (Liste.CurrentRow != null)
+            {
+                secimId = (int)Liste.CurrentRow.Cells[6].Value;
+            }
+
+            Ac(secimId);
+        }
+
+        public void Ac(int secimId)
+        {
+            if (secimId < 0)
+            {
+                MessageBox.Show("Kayit id bulunamamistir!");
+                return;
+            }
+            kayitBul = _db.tblHastaneDetaylar.FirstOrDefault(x => x.Id == secimId);
+
+            lblSecilenKayit.Text = kayitBul.Id.ToString().PadLeft(6, '0');
+        }
     }
 }

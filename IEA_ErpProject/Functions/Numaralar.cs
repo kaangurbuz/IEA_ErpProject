@@ -19,11 +19,26 @@ namespace IEA_ErpProject.Functions
                 string num = numara.ToString().PadLeft(7,'0');
                 return num;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return "0000001";
             }
             
+        }
+
+        public string UGirisNo()
+        {
+            try
+            {
+                var numara = (from s in _db.tblUrunGirisUst orderby s.Id descending select s).First().GirisId;
+                numara++;
+                string num = numara.ToString().PadLeft(7, '0');
+                return num;
+            }
+            catch (Exception)
+            {
+                return "0000001";
+            }
         }
     }
 }

@@ -125,6 +125,7 @@
             this.txtFirmaAra.Name = "txtFirmaAra";
             this.txtFirmaAra.Size = new System.Drawing.Size(190, 20);
             this.txtFirmaAra.TabIndex = 0;
+            this.txtFirmaAra.TextChanged += new System.EventHandler(this.txtFirmaAra_TextChanged);
             // 
             // Liste
             // 
