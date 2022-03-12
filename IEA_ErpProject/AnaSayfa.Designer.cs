@@ -46,6 +46,7 @@
             this.BtnBilgiGiris = new System.Windows.Forms.Button();
             this.BtnUrunGiris = new System.Windows.Forms.Button();
             this.BtnStok = new System.Windows.Forms.Button();
+            this.BtnKonsinye = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -61,7 +62,6 @@
             this.txtSolUstAra = new System.Windows.Forms.TextBox();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.flpButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.BtnKonsinye = new System.Windows.Forms.Button();
             this.tabPGenel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -215,6 +215,7 @@
             this.TvMenu.Name = "TvMenu";
             this.TvMenu.SelectedImageIndex = 0;
             this.TvMenu.ShowLines = false;
+            this.TvMenu.ShowPlusMinus = false;
             this.TvMenu.Size = new System.Drawing.Size(333, 195);
             this.TvMenu.TabIndex = 0;
             this.TvMenu.DoubleClick += new System.EventHandler(this.TvMenu_DoubleClick);
@@ -281,6 +282,18 @@
             this.BtnStok.Text = "Stok Islemleri";
             this.BtnStok.UseVisualStyleBackColor = false;
             this.BtnStok.Click += new System.EventHandler(this.BtnStok_Click);
+            // 
+            // BtnKonsinye
+            // 
+            this.BtnKonsinye.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BtnKonsinye.ForeColor = System.Drawing.Color.DimGray;
+            this.BtnKonsinye.Location = new System.Drawing.Point(84, 3);
+            this.BtnKonsinye.Name = "BtnKonsinye";
+            this.BtnKonsinye.Size = new System.Drawing.Size(74, 56);
+            this.BtnKonsinye.TabIndex = 9;
+            this.BtnKonsinye.Text = "Konsinye Islemleri";
+            this.BtnKonsinye.UseVisualStyleBackColor = false;
+            this.BtnKonsinye.Click += new System.EventHandler(this.BtnKonsinye_Click);
             // 
             // button1
             // 
@@ -464,18 +477,6 @@
             this.flpButtons.Size = new System.Drawing.Size(200, 472);
             this.flpButtons.TabIndex = 7;
             this.flpButtons.Visible = false;
-            // 
-            // BtnKonsinye
-            // 
-            this.BtnKonsinye.BackColor = System.Drawing.Color.LavenderBlush;
-            this.BtnKonsinye.ForeColor = System.Drawing.Color.DimGray;
-            this.BtnKonsinye.Location = new System.Drawing.Point(84, 3);
-            this.BtnKonsinye.Name = "BtnKonsinye";
-            this.BtnKonsinye.Size = new System.Drawing.Size(74, 56);
-            this.BtnKonsinye.TabIndex = 9;
-            this.BtnKonsinye.Text = "Konsinye Islemleri";
-            this.BtnKonsinye.UseVisualStyleBackColor = false;
-            this.BtnKonsinye.Click += new System.EventHandler(this.BtnKonsinye_Click);
             // 
             // AnaSayfa
             // 

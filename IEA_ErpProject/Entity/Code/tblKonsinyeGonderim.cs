@@ -12,6 +12,7 @@ namespace IEA_ErpProject.Entity.Code
      [Table("tblKonsinyeGonderimler")]
     public class tblKonsinyeGonderim:BaseEntitiy
     {
+        public int GonderimId { get; set; }
         [StringLength(15)]
         public string CariTur { get; set; }
         [StringLength(200)]

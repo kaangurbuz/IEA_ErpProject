@@ -447,6 +447,7 @@
             this.txtKonGonderimId.ReadOnly = true;
             this.txtKonGonderimId.Size = new System.Drawing.Size(286, 20);
             this.txtKonGonderimId.TabIndex = 1;
+            this.txtKonGonderimId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -519,11 +520,13 @@
             this.BtnSil.TabIndex = 7;
             this.BtnSil.Text = "Sil";
             this.BtnSil.UseVisualStyleBackColor = true;
+            this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
             // 
             // BtnGuncelle
             // 
             this.BtnGuncelle.BackgroundImage = global::IEA_ErpProject.Properties.Resources.icons8_refresh_641;
             this.BtnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnGuncelle.Enabled = false;
             this.BtnGuncelle.Location = new System.Drawing.Point(53, 12);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(38, 38);

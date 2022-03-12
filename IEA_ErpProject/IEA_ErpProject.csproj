@@ -277,6 +277,14 @@
     <Compile Include="Migrations\202203081121059_FKKonsinyeGonderim.designer.cs">
       <DependentUpon>202203081121059_FKKonsinyeGonderim.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203111632487_UpdateBaseEntity.cs" />
+    <Compile Include="Migrations\202203111632487_UpdateBaseEntity.designer.cs">
+      <DependentUpon>202203111632487_UpdateBaseEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203111724246_AddGonderimId.cs" />
+    <Compile Include="Migrations\202203111724246_AddGonderimId.designer.cs">
+      <DependentUpon>202203111724246_AddGonderimId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -371,6 +379,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203081121059_FKKonsinyeGonderim.resx">
       <DependentUpon>202203081121059_FKKonsinyeGonderim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203111632487_UpdateBaseEntity.resx">
+      <DependentUpon>202203111632487_UpdateBaseEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203111724246_AddGonderimId.resx">
+      <DependentUpon>202203111724246_AddGonderimId.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
