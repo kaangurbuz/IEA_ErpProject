@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BtnDetayGoster = new System.Windows.Forms.Button();
             this.BtnDetayEkle = new System.Windows.Forms.Button();
             this.txtPersonelBul = new System.Windows.Forms.TextBox();
@@ -190,8 +190,8 @@
             // 
             // Liste
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LavenderBlush;
-            this.Liste.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LavenderBlush;
+            this.Liste.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.Liste.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -202,19 +202,19 @@
             this.Departman,
             this.Tel,
             this.Sehir});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.HotPink;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Liste.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.HotPink;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Liste.DefaultCellStyle = dataGridViewCellStyle8;
             this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Liste.Location = new System.Drawing.Point(0, 0);
             this.Liste.Name = "Liste";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightPink;
-            this.Liste.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.LightPink;
+            this.Liste.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.Liste.Size = new System.Drawing.Size(913, 253);
             this.Liste.TabIndex = 0;
             this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
@@ -414,6 +414,15 @@
             // 
             this.txtUnvan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtUnvan.FormattingEnabled = true;
+            this.txtUnvan.Items.AddRange(new object[] {
+            "CEO",
+            "Ürün Müdürü",
+            "AR-GE Uzmanı",
+            "Pazarlama Uzmanı",
+            "Kıdemli Danışman",
+            "İş Geliştirme Uzmanı",
+            "İnsan Kaynakları Uzmanı",
+            "Muhasebe Müdürü"});
             this.txtUnvan.Location = new System.Drawing.Point(124, 54);
             this.txtUnvan.Name = "txtUnvan";
             this.txtUnvan.Size = new System.Drawing.Size(248, 21);
@@ -463,6 +472,7 @@
             this.BtnKapat.Size = new System.Drawing.Size(35, 35);
             this.BtnKapat.TabIndex = 11;
             this.BtnKapat.UseVisualStyleBackColor = true;
+            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
             // 
             // BtnTemizle
             // 
@@ -485,6 +495,7 @@
             this.BtnSil.TabIndex = 9;
             this.BtnSil.Text = "Sil";
             this.BtnSil.UseVisualStyleBackColor = true;
+            this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
             // 
             // BtnKaydet
             // 
@@ -506,6 +517,7 @@
             this.BtnGuncelle.Size = new System.Drawing.Size(35, 35);
             this.BtnGuncelle.TabIndex = 7;
             this.BtnGuncelle.UseVisualStyleBackColor = true;
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // PersonelGiris
             // 

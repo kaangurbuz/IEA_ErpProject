@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IEA_ErpProject.UrunGiris.Urunler
+namespace IEA_ErpProject.KonsinyeIslemleri.Cikis
 {
-    public partial class UrunlerListesi : Form
+    public partial class KonsinyeCikis : Form
     {
-        public UrunlerListesi()
+        public KonsinyeCikis()
         {
             InitializeComponent();
         }
